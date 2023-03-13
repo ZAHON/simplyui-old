@@ -1,0 +1,49 @@
+{
+  "name": "simplyui-react-storybook",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "concurrently \"pnpm run dev:css\" \"start-storybook -p 6006 --no-open\"",
+    "dev:css": "tailwindcss -w -i ./.storybook/tailwind-entry.css -o ./.storybook/tailwind-output.css",
+    "build": "concurrently \"pnpm run build:css\" \"build-storybook\"",
+    "build:css": "tailwindcss -m -i ./.storybook/tailwind-entry.css -o ./.storybook/tailwind-output.css",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist",
+    "lint": "eslint ./stories --ext .tsx",
+    "format": "prettier --loglevel warn --write \"./**/*.{js,ts,tsx,md,json}\""
+  },
+  "dependencies": {
+    "react": "^18.2.0",
+    "react-dom": "^18.2.0",
+    "@simplyui/tailwind-plugin": "workspace:*",
+    "@simplyui/react": "workspace:*"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.21.0",
+    "@storybook/addon-a11y": "^6.5.16",
+    "@storybook/addon-actions": "^6.5.16",
+    "@storybook/addon-essentials": "^6.5.16",
+    "@storybook/addon-interactions": "^6.5.16",
+    "@storybook/addon-links": "^6.5.16",
+    "@storybook/addon-styling": "^0.3.1",
+    "@storybook/builder-vite": "^0.4.2",
+    "@storybook/cli": "^6.5.16",
+    "@storybook/react": "^6.5.16",
+    "@storybook/testing-library": "^0.0.13",
+    "@types/react": "^18.0.27",
+    "@types/react-dom": "^18.0.10",
+    "@vitejs/plugin-react-swc": "^3.0.0",
+    "autoprefixer": "^10.4.14",
+    "babel-loader": "^8.3.0",
+    "concurrently": "^7.6.0",
+    "eslint": "^8.36.0",
+    "eslint-config-custom": "workspace:*",
+    "postcss": "^8.4.21",
+    "tailwindcss": "^3.2.7",
+    "typescript": "^4.9.3",
+    "vite": "^4.1.0"
+  },
+  "engines": {
+    "node": "16"
+  }
+}

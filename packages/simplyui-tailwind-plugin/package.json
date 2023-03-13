@@ -1,0 +1,27 @@
+{
+  "name": "@simplyui/tailwind-plugin",
+  "type": "commonjs",
+  "version": "0.0.0",
+  "main": "src/index.js",
+  "license": "MIT",
+  "scripts": {
+    "lint": "eslint ./src --ext .js",
+    "format": "prettier --loglevel warn --write \"./**/*.{js,json}\"",
+    "type-check": "tsc",
+    "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
+  },
+  "dependencies": {
+    "@radix-ui/colors": "^0.1.8"
+  },
+  "devDependencies": {
+    "eslint": "^8.36.0",
+    "eslint-config-custom": "workspace:*",
+    "tailwindcss": "^3.2.7"
+  },
+  "peerDependencies": {
+    "tailwindcss": ">=3.0.0"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
