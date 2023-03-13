@@ -1,0 +1,116 @@
+import { cva } from 'class-variance-authority';
+
+export const loaderStyles = cva(
+  [
+    'h-[var(--loader-size)]',
+    'w-[var(--loader-size)]',
+    'select-none',
+    'relative',
+    'flex',
+    'justify-center',
+    'items-center',
+    'rounded-full',
+    'bg-transparent',
+  ],
+  {
+    variants: {
+      variant: {
+        border: [
+          'border-[length:var(--loader-border)]',
+          'border-current',
+          'border-r-transparent',
+          'animate-[spin_var(--loader-animation-duration)_linear_infinite]',
+        ],
+        oval: [
+          'before:content-[""]',
+          'before:absolute',
+          'before:top-0',
+          'before:h-full',
+          'before:w-full',
+          'before:rounded-full',
+          'before:border-[length:var(--loader-border)]',
+          'before:border-transparent',
+          'before:border-b-current',
+          'before:animate-[spin_var(--loader-animation-duration)_linear_infinite]',
+
+          'after:content-[""]',
+          'after:absolute',
+          'after:top-0',
+          'after:h-full',
+          'after:w-full',
+          'after:rounded-full',
+          'after:opacity-50',
+          'after:border-[length:var(--loader-border)]',
+          'after:border-current',
+        ],
+        spinner: [
+          'before:content-[""]',
+          'before:absolute',
+          'before:top-0',
+          'before:h-full',
+          'before:w-full',
+          'before:rounded-full',
+          'before:border-[length:var(--loader-border)]',
+          'before:border-transparent',
+          'before:border-b-current',
+          'before:animate-[spin_var(--loader-animation-duration)_ease_infinite]',
+
+          'after:content-[""]',
+          'after:absolute',
+          'after:top-0',
+          'after:h-full',
+          'after:w-full',
+          'after:rounded-full',
+          'after:opacity-50',
+          'after:border-[length:var(--loader-border)]',
+          'after:border-dotted',
+          'after:border-transparent',
+          'after:border-b-current',
+          'after:animate-[spin_var(--loader-animation-duration)_linear_infinite]',
+        ],
+      },
+      size: {
+        xs: ['[--loader-size:1rem]', '[--loader-border:0.125rem]'],
+        sm: ['[--loader-size:1.5rem]', '[--loader-border:0.125rem]'],
+        md: ['[--loader-size:2rem]', '[--loader-border:0.1875rem]'],
+        lg: ['[--loader-size:2.75rem]', '[--loader-border:0.25rem]'],
+        xl: ['[--loader-size:4rem]', '[--loader-border:0.375rem]'],
+      },
+      color: {
+        currentColor: ['text-current'],
+
+        // Colors
+        blue: ['text-blue-9', 'dark:text-blue-dark-9'],
+        brown: ['text-brown-9', 'dark:text-brown-dark-9'],
+        crimson: ['text-crimson-9', 'dark:text-crimson-dark-9'],
+        cyan: ['text-cyan-9', 'dark:text-cyan-dark-9'],
+        grass: ['text-grass-9', 'dark:text-grass-dark-9'],
+        green: ['text-green-9', 'dark:text-green-dark-9'],
+        indigo: ['text-indigo-9', 'dark:text-indigo-dark-9'],
+        orange: ['text-orange-9', 'dark:text-orange-dark-9'],
+        pink: ['text-pink-9', 'dark:text-pink-dark-9'],
+        plum: ['text-plum-9', 'dark:text-plum-dark-9'],
+        purple: ['text-purple-9', 'dark:text-purple-dark-9'],
+        red: ['text-red-9', 'dark:text-red-dark-9'],
+        teal: ['text-teal-9', 'dark:text-teal-dark-9'],
+        tomato: ['text-tomato-9', 'dark:text-tomato-dark-9'],
+        violet: ['text-violet-9', 'dark:text-violet-dark-9'],
+
+        // Bright Colors
+        sky: ['text-sky-9', 'dark:text-sky-dark-9'],
+        mint: ['text-mint-9', 'dark:text-mint-dark-9'],
+        lime: ['text-lime-9', 'dark:text-lime-dark-9'],
+        yellow: ['text-yellow-9', 'dark:text-yellow-dark-9'],
+        amber: ['text-amber-9', 'dark:text-amber-dark-9'],
+
+        // Gray Colors
+        gray: ['text-gray-9', 'dark:text-gray-dark-9'],
+        mauve: ['text-mauve-9', 'dark:text-mauve-dark-9'],
+        slate: ['text-slate-9', 'dark:text-slate-dark-9'],
+        sage: ['text-sage-9', 'dark:text-sage-dark-9'],
+        olive: ['text-olive-9', 'dark:text-olive-dark-9'],
+        sand: ['text-sand-9', 'dark:text-sand-dark-9'],
+      },
+    },
+  }
+);
