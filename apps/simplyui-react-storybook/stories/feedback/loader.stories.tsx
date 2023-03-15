@@ -9,7 +9,7 @@ export default {
   args: {
     variant: 'oval',
     size: 'md',
-    color: 'blue',
+    color: 'primary',
     speed: 800,
     label: 'Loading...',
   },
