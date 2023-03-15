@@ -1,5 +1,5 @@
 import type { HTMLAttributes, CSSProperties } from 'react';
-import type { Size, Color, BrightColor, GrayColor } from '../../types';
+import type { Size, Color } from '../../types';
 
 export interface LoaderProps extends HTMLAttributes<HTMLDivElement> {
   /**
@@ -16,9 +16,9 @@ export interface LoaderProps extends HTMLAttributes<HTMLDivElement> {
 
   /**
    * The color of the Loader.
-   * @default "blue"
+   * @default "primary"
    */
-  color?: 'currentColor' | Color | BrightColor | GrayColor;
+  color?: 'currentColor' | Color;
 
   /**
    * The speed of the Loader in ms.

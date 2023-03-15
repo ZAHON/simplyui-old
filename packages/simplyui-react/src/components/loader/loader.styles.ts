@@ -80,36 +80,12 @@ export const loaderStyles = cva(
         currentColor: ['text-current'],
 
         // Colors
-        blue: ['text-blue-9', 'dark:text-blue-dark-9'],
-        brown: ['text-brown-9', 'dark:text-brown-dark-9'],
-        crimson: ['text-crimson-9', 'dark:text-crimson-dark-9'],
-        cyan: ['text-cyan-9', 'dark:text-cyan-dark-9'],
-        grass: ['text-grass-9', 'dark:text-grass-dark-9'],
-        green: ['text-green-9', 'dark:text-green-dark-9'],
-        indigo: ['text-indigo-9', 'dark:text-indigo-dark-9'],
-        orange: ['text-orange-9', 'dark:text-orange-dark-9'],
-        pink: ['text-pink-9', 'dark:text-pink-dark-9'],
-        plum: ['text-plum-9', 'dark:text-plum-dark-9'],
-        purple: ['text-purple-9', 'dark:text-purple-dark-9'],
-        red: ['text-red-9', 'dark:text-red-dark-9'],
-        teal: ['text-teal-9', 'dark:text-teal-dark-9'],
-        tomato: ['text-tomato-9', 'dark:text-tomato-dark-9'],
-        violet: ['text-violet-9', 'dark:text-violet-dark-9'],
-
-        // Bright Colors
-        sky: ['text-sky-9', 'dark:text-sky-dark-9'],
-        mint: ['text-mint-9', 'dark:text-mint-dark-9'],
-        lime: ['text-lime-9', 'dark:text-lime-dark-9'],
-        yellow: ['text-yellow-9', 'dark:text-yellow-dark-9'],
-        amber: ['text-amber-9', 'dark:text-amber-dark-9'],
-
-        // Gray Colors
-        gray: ['text-gray-9', 'dark:text-gray-dark-9'],
-        mauve: ['text-mauve-9', 'dark:text-mauve-dark-9'],
-        slate: ['text-slate-9', 'dark:text-slate-dark-9'],
-        sage: ['text-sage-9', 'dark:text-sage-dark-9'],
-        olive: ['text-olive-9', 'dark:text-olive-dark-9'],
-        sand: ['text-sand-9', 'dark:text-sand-dark-9'],
+        neutral: ['text-neutral-light-9', 'dark:text-neutral-dark-9'],
+        primary: ['text-primary-light-9', 'dark:text-primary-dark-9'],
+        secondary: ['text-secondary-light-9', 'dark:text-secondary-dark-9'],
+        success: ['text-success-light-9', 'dark:text-success-dark-9'],
+        warning: ['text-warning-light-9', 'dark:text-warning-dark-9'],
+        error: ['text-error-light-9', 'dark:text-error-dark-9'],
       },
     },
   }

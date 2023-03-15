@@ -7,7 +7,7 @@ import { loaderStyles } from './loader.styles';
 export const defaultProps: Partial<LoaderProps> = {
   variant: 'oval',
   size: 'md',
-  color: 'blue',
+  color: 'primary',
   speed: 800,
   label: 'Loading...',
 };
