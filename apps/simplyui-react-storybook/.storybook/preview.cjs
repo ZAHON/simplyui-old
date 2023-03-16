@@ -2,6 +2,9 @@ import './tailwind-output.css';
 import { withThemeByDataAttribute } from '@storybook/addon-styling';
 
 export const parameters = {
+  cssUserPrefs: {
+    'prefers-reduced-motion': 'no-preference',
+  },
   actions: { argTypesRegex: '^on[A-Z].*' },
   controls: {
     matchers: {
