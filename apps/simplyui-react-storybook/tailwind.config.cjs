@@ -4,6 +4,7 @@ module.exports = {
   content: [
     '../../packages/simplyui-react/src/**/*.{js,ts,jsx,tsx}',
     './stories/**/*.{js,ts,jsx,tsx}',
+    './icons/**/*.{js,ts,jsx,tsx}',
   ],
   theme: {
     extend: {},
