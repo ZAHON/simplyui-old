@@ -1,5 +1,6 @@
 import React from 'react';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
+import { BellIcon } from '../../icons';
 
 import { ActionIcon } from '@simplyui/react/src';
 
@@ -15,22 +16,7 @@ export default {
     disabled: false,
     loading: false,
     type: 'button',
-    children: (
-      <svg
-        xmlns="http://www.w3.org/2000/svg"
-        fill="none"
-        viewBox="0 0 24 24"
-        strokeWidth={2}
-        stroke="currentColor"
-        className="w-4 h-4"
-      >
-        <path
-          strokeLinecap="round"
-          strokeLinejoin="round"
-          d="M6 13.5V3.75m0 9.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 3.75V16.5m12-3V3.75m0 9.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 3.75V16.5m-6-9V3.75m0 3.75a1.5 1.5 0 010 3m0-3a1.5 1.5 0 000 3m0 9.75V10.5"
-        />
-      </svg>
-    ),
+    children: <BellIcon />,
   },
   argTypes: {
     size: { control: 'select' },
@@ -38,20 +24,7 @@ export default {
     color: { control: 'select' },
     rounded: {
       control: 'select',
-      options: [
-        undefined,
-        'none',
-        'xs',
-        'sm',
-        'md',
-        'lg',
-        'xl',
-        '2xl',
-        '3xl',
-        'squared',
-        'half',
-        'full',
-      ],
+      options: [undefined, 'none', 'full'],
     },
     type: { control: 'select' },
     className: { control: false },
