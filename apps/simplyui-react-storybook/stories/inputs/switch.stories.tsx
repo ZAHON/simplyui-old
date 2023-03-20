@@ -20,7 +20,7 @@ export default {
     color: { control: 'select' },
     rounded: {
       control: 'select',
-      options: [undefined, 'none', 'xs', 'sm', 'md', 'lg', 'xl', 'full'],
+      options: [undefined, 'none', 'full'],
     },
     icon: { control: false },
     iconOn: { control: false },
