@@ -39,7 +39,7 @@ export interface SwitchProps extends ButtonHTMLAttributes<HTMLButtonElement> {
    * Sets the border radius of the Switch, overwrites the value specified by size prop.
    * @default undefined
    */
-  rounded?: Exclude<Rounded, '2xl' | '3xl'>;
+  rounded?: Rounded;
 
   /**
    * The state of the Switch when it is initially rendered. Use when you do not need to control its state.

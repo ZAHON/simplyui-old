@@ -18,11 +18,6 @@ export const switchThumbstyles = cva(
     variants: {
       rounded: {
         none: ['rounded-none'],
-        xs: ['rounded-xs'],
-        sm: ['rounded-sm'],
-        md: ['rounded-md'],
-        lg: ['rounded-lg'],
-        xl: ['rounded-xl'],
         full: ['rounded-full'],
       },
       variant: {

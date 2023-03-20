@@ -4,7 +4,7 @@ import type { Size, Rounded } from '../../../types';
 export type SwitchThumbProps = {
   variant?: 'filled' | 'outline';
   size?: Size;
-  rounded?: Exclude<Rounded, '2xl' | '3xl'>;
+  rounded?: Rounded;
   className?: string;
   children?: ReactNode;
 };
