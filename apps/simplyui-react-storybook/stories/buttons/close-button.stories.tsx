@@ -71,5 +71,5 @@ CustomIconSize.args = {
 
 export const CustomIcon = Template.bind({});
 CustomIcon.args = {
-  children: <BellIcon />,
+  children: <BellIcon size={16} />,
 };

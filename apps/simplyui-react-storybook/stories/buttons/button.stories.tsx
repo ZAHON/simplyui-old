@@ -90,16 +90,16 @@ LoadingWithLoadingText.args = {
 
 export const WithLeftIcon = Template.bind({});
 WithLeftIcon.args = {
-  leftIcon: <BellIcon />,
+  leftIcon: <BellIcon size={16} />,
 };
 
 export const WithRightIcon = Template.bind({});
 WithRightIcon.args = {
-  rightIcon: <BellIcon />,
+  rightIcon: <BellIcon size={16} />,
 };
 
 export const WithLeftAndRightIcon = Template.bind({});
 WithLeftAndRightIcon.args = {
-  leftIcon: <BellIcon />,
-  rightIcon: <BellIcon />,
+  leftIcon: <BellIcon size={16} />,
+  rightIcon: <BellIcon size={16} />,
 };

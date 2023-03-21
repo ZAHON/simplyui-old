@@ -64,11 +64,11 @@ CheckedDisabled.args = {
 
 export const WithIcon = Template.bind({});
 WithIcon.args = {
-  icon: <BellIcon />,
+  icon: <BellIcon size={16} />,
 };
 
 export const WithOnAndOffIcons = Template.bind({});
 WithOnAndOffIcons.args = {
-  iconOff: <BellSlashIcon />,
-  iconOn: <BellIcon />,
+  iconOff: <BellSlashIcon size={16} />,
+  iconOn: <BellIcon size={16} />,
 };

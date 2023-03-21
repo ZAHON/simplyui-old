@@ -16,7 +16,7 @@ export default {
     disabled: false,
     loading: false,
     type: 'button',
-    children: <BellIcon />,
+    children: <BellIcon size={16} />,
   },
   argTypes: {
     size: { control: 'select' },

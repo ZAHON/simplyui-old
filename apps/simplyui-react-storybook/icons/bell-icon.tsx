@@ -1,12 +1,15 @@
 import React from 'react';
+import type { IconProps } from './icon.types';
 
-export function BellIcon() {
+export function BellIcon(props: IconProps) {
+  const { size } = props;
+
   return (
     <svg
       xmlns="http://www.w3.org/2000/svg"
       viewBox="0 0 20 20"
       fill="currentColor"
-      className="w-4 h-4"
+      style={{ height: size, width: size }}
     >
       <path
         fillRule="evenodd"
