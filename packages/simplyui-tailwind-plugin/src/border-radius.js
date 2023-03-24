@@ -9,7 +9,6 @@ module.exports = {
     '2xl': '24px',
     '3xl': '32px',
     squared: '33%',
-    rounded: '50%',
     full: '9999px',
   },
 };
