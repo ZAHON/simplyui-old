@@ -1,14 +1,15 @@
 module.exports = {
   borderRadius: {
-    inherit: 'inherit',
     none: '0',
-    xs: '0.4375rem',
-    sm: '0.5625rem',
-    md: '0.75rem',
-    lg: '0.875rem',
-    xl: '1.125rem',
-    '2xl': '1.5rem',
-    '3xl': '2rem',
+    xs: '7px',
+    sm: '9px',
+    md: '12px',
+    lg: '14px',
+    xl: '18px',
+    '2xl': '24px',
+    '3xl': '32px',
+    squared: '33%',
+    rounded: '50%',
     full: '9999px',
   },
 };

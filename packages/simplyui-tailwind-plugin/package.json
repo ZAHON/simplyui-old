@@ -10,9 +10,6 @@
     "type-check": "tsc",
     "clean": "rm -rf .turbo && rm -rf node_modules && rm -rf dist"
   },
-  "dependencies": {
-    "@radix-ui/colors": "^0.1.8"
-  },
   "devDependencies": {
     "eslint": "^8.36.0",
     "eslint-config-custom": "workspace:*",

@@ -1,26 +1,27 @@
 const plugin = require('tailwindcss/plugin');
-const baseStyles = require('./base-styles');
+
+const darkTheme = require('./themes/dark');
+const lightTheme = require('./themes/light');
 const colors = require('./colors');
+const base = require('./base');
 const borderRadius = require('./border-radius');
 
-module.exports = plugin.withOptions(
-  function () {
-    return function ({ config, theme, addBase }) {
-      addBase({
-        ...baseStyles(config, theme),
-      });
-    };
+module.exports = plugin(
+  function ({ addBase, addUtilities }) {
+    addBase({
+      ...base,
+    });
+    addUtilities({
+      ...darkTheme,
+      ...lightTheme,
+    });
   },
-  function () {
-    return {
-      theme: {
-        extend: {
-          colors: {
-            ...colors,
-          },
-        },
+  {
+    theme: {
+      extend: {
+        ...colors,
         ...borderRadius,
       },
-    };
+    },
   }
 );
