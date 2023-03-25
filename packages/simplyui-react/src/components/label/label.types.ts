@@ -1,7 +1,7 @@
-import type { LabelHTMLAttributes } from 'react';
-import type { Size } from '../../types';
+import type { LabelHTMLAttributes, ReactNode } from 'react';
+import type { Size, Color } from '../../types';
 
-export interface LabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
+export interface LabelProps extends Omit<LabelHTMLAttributes<HTMLLabelElement>, 'className'> {
   /**
    * The id of the element the label is associated with.
    */
@@ -10,7 +10,11 @@ export interface LabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
   /**
    * The content of the label.
    */
-  children: string;
+  children: ReactNode;
+
+  description?: ReactNode;
+
+  disabled?: boolean;
 
   /**
    * If true, add asterisk after label content.
@@ -25,12 +29,22 @@ export interface LabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
   size?: Size;
 
   /**
+   * The color of the label.
+   * @default "default"
+   */
+  color?: Exclude<Color, 'neutral'> | 'default';
+
+  rootClassName?: string;
+
+  /**
    * Override label default styles.
    */
-  className?: string;
+  labelClassName?: string;
 
   /**
    * Override label asterisk default styles.
    */
   asteriskClassName?: string;
+
+  descriptionClassName?: string;
 }

@@ -3,22 +3,61 @@ import { forwardRef } from 'react';
 import { Root } from '@radix-ui/react-label';
 import { twMerge } from 'tailwind-merge';
 import { applayComponentDefaultProps } from '../../utils';
-import { LabelAsterisk } from './label-asterisk/label-asterisk';
+import { LabelDescription } from './label-description/label-description';
 import { labelStyles } from './label.styles';
 
 const defaultProps: Partial<LabelProps> = {
   size: 'md',
+  color: 'default',
 };
 
 export const Label = forwardRef<HTMLLabelElement, LabelProps>(function Label(props, ref) {
-  const { size, withAsterisk, className, asteriskClassName, children, ...others } =
-    applayComponentDefaultProps(defaultProps, props);
+  const {
+    disabled,
+    size,
+    color,
+    withAsterisk,
+    description,
+    rootClassName,
+    labelClassName,
+    asteriskClassName,
+    descriptionClassName,
+    children,
+    ...others
+  } = applayComponentDefaultProps(defaultProps, props);
+
+  const asterisk = ' *';
+  const dataDisabled = disabled ? '' : undefined;
 
   return (
-    <Root {...others} ref={ref} className={twMerge(labelStyles({ size }), className)}>
-      {children}
-      {withAsterisk && <LabelAsterisk className={asteriskClassName} />}
-    </Root>
+    <div className={twMerge(rootClassName)}>
+      <Root
+        {...others}
+        ref={ref}
+        data-disabled={dataDisabled}
+        className={twMerge(labelStyles({ size, color }), labelClassName)}
+      >
+        {children}
+        {withAsterisk && (
+          <span
+            aria-hidden
+            data-disabled={dataDisabled}
+            className={twMerge('text-error-11', asteriskClassName)}
+          >
+            {asterisk}
+          </span>
+        )}
+      </Root>
+      {description && (
+        <LabelDescription
+          data-disabled={dataDisabled}
+          color={color}
+          className={descriptionClassName}
+        >
+          {description}
+        </LabelDescription>
+      )}
+    </div>
   );
 });
 

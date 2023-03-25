@@ -1,7 +1,12 @@
 import { cva } from 'class-variance-authority';
 
-export const labelStyles = cva(
+export const labelDescriptionStyles = cva(
   [
+    'text-xs',
+    'leading-3',
+    'cursor-default',
+    'font-light',
+
     'motion-safe:transition',
     'motion-safe:duration-150',
 
@@ -10,13 +15,6 @@ export const labelStyles = cva(
   ],
   {
     variants: {
-      size: {
-        xs: ['text-xs'],
-        sm: ['text-xs'],
-        md: ['text-sm'],
-        lg: ['text-base'],
-        xl: ['text-lg'],
-      },
       color: {
         default: ['text-neutral-12'],
         primary: ['text-primary-11'],
