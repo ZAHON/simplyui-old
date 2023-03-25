@@ -93,7 +93,3 @@ WithLabelAndDescription.args = {
   label: 'Switch label',
   description: 'switch description',
 };
-
-export function Demo() {
-  return <Switch invalid errorMessage="Switch error message" />;
-}
