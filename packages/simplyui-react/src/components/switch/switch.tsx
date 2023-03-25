@@ -1,61 +1,92 @@
 import type { SwitchProps } from './switch.types';
-import { forwardRef, useState } from 'react';
-import { Root } from '@radix-ui/react-switch';
+import { forwardRef, useId } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { applayComponentDefaultProps } from '../../utils';
-import { SwitchThumb } from './switch-thumb/switch-thumb';
-import { getInitialState } from './utils/get-initial-state';
-import { getIcon } from './utils/get-icon';
+import { FieldLabel, FieldDescription, FieldErrorMessage } from '../form-helpers';
 import { switchStyles } from './switch.styles';
 
 const defaultProps: Partial<SwitchProps> = {
   variant: 'filled',
   size: 'md',
   color: 'primary',
+  labelPosition: 'right',
+  rounded: 'full',
+  requiredIndicator: ' *',
 };
 
-export const Switch = forwardRef<HTMLButtonElement, SwitchProps>(function Switch(props, ref) {
+export const Switch = forwardRef<HTMLInputElement, SwitchProps>(function Switch(props, ref) {
   const {
+    id,
+    disabled,
+    invalid,
+    required,
+    label,
+    labelPosition,
+    requiredIndicator,
+    description,
+    errorMessage,
     variant,
     size,
     color,
     rounded,
-    icon,
-    iconOn,
-    iconOff,
-    className,
-    thumbClassName,
-    onCheckedChange,
+    rootClassName,
+    inputClassName,
+    labelWrapperClassName,
+    labelClassName,
+    requiredIndicatorClassName,
+    descriptionClassName,
+    errorMessageClassName,
     ...others
   } = applayComponentDefaultProps(defaultProps, props);
 
-  const { checked, defaultChecked } = props;
+  const uuid = useId();
+  const inputId = id || uuid;
 
-  const [isChecked, setIsChecked] = useState(getInitialState({ checked, defaultChecked }));
-
-  const thumbIcon = getIcon({ isChecked, icon, iconOn, iconOff });
-
-  function handleCheckedChange(checked: boolean) {
-    if (iconOn || iconOff) {
-      setIsChecked(checked);
-    }
-
-    if (onCheckedChange) {
-      onCheckedChange(checked);
-    }
-  }
+  const labelWrapper =
+    label || description || errorMessage ? (
+      <div className={twMerge('flex flex-col', labelWrapperClassName)}>
+        {label && (
+          <FieldLabel
+            htmlFor={inputId}
+            disabled={disabled}
+            withRequiredIndicator={required}
+            requiredIndicator={requiredIndicator}
+            className={labelClassName}
+            requiredIndicatorClassName={requiredIndicatorClassName}
+          >
+            {label}
+          </FieldLabel>
+        )}
+        {description && (
+          <FieldDescription disabled={disabled} className={descriptionClassName}>
+            {description}
+          </FieldDescription>
+        )}
+        {invalid && errorMessage && (
+          <FieldErrorMessage disabled={disabled} className={errorMessageClassName}>
+            {errorMessage}
+          </FieldErrorMessage>
+        )}
+      </div>
+    ) : undefined;
 
   return (
-    <Root
-      {...others}
-      ref={ref}
-      onCheckedChange={handleCheckedChange}
-      className={twMerge(switchStyles({ variant, size, color, rounded }), className)}
-    >
-      <SwitchThumb variant={variant} size={size} rounded={rounded} className={thumbClassName}>
-        {thumbIcon}
-      </SwitchThumb>
-    </Root>
+    <div className={twMerge('flex items-center gap-x-3', rootClassName)}>
+      {labelPosition === 'left' && labelWrapper}
+      <input
+        {...others}
+        ref={ref}
+        id={inputId}
+        disabled={disabled}
+        aria-required={required}
+        aria-invalid={invalid}
+        data-invalid={invalid}
+        type="checkbox"
+        role="switch"
+        className={twMerge(switchStyles({ variant, size, color, rounded }), inputClassName)}
+      />
+      {labelPosition === 'right' && labelWrapper}
+    </div>
   );
 });
 

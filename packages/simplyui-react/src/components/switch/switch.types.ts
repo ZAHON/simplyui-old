@@ -1,89 +1,134 @@
-import type { ReactNode, ButtonHTMLAttributes } from 'react';
-import type { Size, Rounded, Color } from '../../types';
+import type { InputHTMLAttributes, ChangeEventHandler, ReactNode } from 'react';
+import type { Size, Color, Rounded } from '../../types';
 
-export interface SwitchProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface SwitchProps
+  extends Omit<InputHTMLAttributes<HTMLInputElement>, 'size' | 'type' | 'role' | 'className'> {
   /**
-   * Icon for both status on/off
-   */
-  icon?: ReactNode;
-
-  /**
-   * Icon for on status.
-   */
-  iconOn?: ReactNode;
-
-  /**
-   * Icon for off status.
-   */
-  iconOff?: ReactNode;
-
-  /**
-   * The variant of the Switch.
-   * @default "filled"
-   */
-  variant?: 'filled' | 'outline';
-
-  /**
-   * The size of the Switch.
-   * @default "md"
-   */
-  size?: Size;
-
-  /**
-   * The color of the Switch.
-   * @default "primary"
-   */
-  color?: Exclude<Color, 'neutral'>;
-
-  /**
-   * Sets the border radius of the Switch, overwrites the value specified by size prop.
-   * @default undefined
-   */
-  rounded?: Rounded;
-
-  /**
-   * The state of the Switch when it is initially rendered. Use when you do not need to control its state.
+   * The state of the switch when it is initially rendered. Use when you do not need to control its state.
    */
   defaultChecked?: boolean;
 
   /**
-   * The controlled state of the Switch. Must be used in conjunction with onChange.
+   * The controlled state of the switch. Must be used in conjunction with onChange.
    */
   checked?: boolean;
 
   /**
-   * Event handler called when the state of the Switch changes.
+   * Event handler called when the state of the switch changes.
    */
-  onCheckedChange?: (checked: boolean) => void;
+  onChange?: ChangeEventHandler<HTMLInputElement>;
 
   /**
-   * When true, prevents the user from interacting with the Switch.
-   */
-  disabled?: boolean;
-
-  /**
-   * When true, indicates that the user must check the Switch before the owning form can be submitted.
-   */
-  required?: boolean;
-
-  /**
-   * The name of the Switch. Submitted with its owning form as part of a name/value pair.
+   * The name of the switch. Submitted with its owning form as part of a name/value pair.
    */
   name?: string;
 
   /**
    * The value given as data when submitted with a name.
-   * @default "on"
    */
   value?: string;
 
   /**
-   * Override Switch default styles.
+   * If true, the switch will be disabled.
+   * @default false
    */
-  className?: string;
+  disabled?: boolean;
 
   /**
-   * Override Switch Thumb default styles.
+   * If true, the switch will be invalid.
+   * @default false
    */
-  thumbClassName?: string;
+  invalid?: boolean;
+
+  /**
+   * If true, the switch will be required.
+   * @default false
+   */
+  required?: boolean;
+
+  /**
+   * The variant of the switch.
+   * @default "filled"
+   */
+  variant?: 'filled' | 'outline';
+
+  /**
+   * The size of the switch.
+   * @default "md"
+   */
+  size?: Size;
+
+  /**
+   * The color of the switch.
+   * @default "primary"
+   */
+  color?: Exclude<Color, 'neutral'>;
+
+  /**
+   * The position of the switch label.
+   * @default "right"
+   */
+  labelPosition?: 'left' | 'right';
+
+  /**
+   * The content of the switch label.
+   */
+  label?: string;
+
+  /**
+   * The content of the required indicator.
+   * @default " *"
+   */
+  requiredIndicator?: ReactNode;
+
+  /**
+   * The content of the switch description.
+   */
+  description?: ReactNode;
+
+  /**
+   * The content of the switch error message.
+   */
+  errorMessage?: ReactNode;
+
+  /**
+   * The value of the switch border-radius.
+   * @default "full"
+   */
+  rounded?: Extract<Rounded, 'none' | 'squared' | 'full'>;
+
+  /**
+   * Override root element default styles. This element contains switch input and label wrapper.
+   */
+  rootClassName?: string;
+
+  /**
+   * Override input default styles.
+   */
+  inputClassName?: string;
+
+  /**
+   * Override label wrapper element default styles. This element contains label, description and errorMessage.
+   */
+  labelWrapperClassName?: string;
+
+  /**
+   * Override label default styles.
+   */
+  labelClassName?: string;
+
+  /**
+   * Override requiredIndicator default styles.
+   */
+  requiredIndicatorClassName?: string;
+
+  /**
+   * Override description default styles.
+   */
+  descriptionClassName?: string;
+
+  /**
+   * Override errorMessage default styles.
+   */
+  errorMessageClassName?: string;
 }

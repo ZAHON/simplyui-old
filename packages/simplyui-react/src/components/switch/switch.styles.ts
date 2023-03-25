@@ -3,7 +3,16 @@ import { cva } from 'class-variance-authority';
 export const switchStyles = cva(
   [
     'relative',
-    'rounded-full',
+    'appearance-none',
+    'cursor-pointer',
+    'border-2',
+
+    'before:content-[""]',
+    'before:absolute',
+    'before:top-0.5',
+    'before:left-0.5',
+    'before:motion-safe:transition',
+    'before:motion-safe:duration-150',
 
     'motion-safe:transition',
     'motion-safe:duration-150',
@@ -11,192 +20,74 @@ export const switchStyles = cva(
     'focus-visible:outline',
     'focus-visible:outline-2',
     'focus-visible:outline-offset-2',
-    'focus-visible:outline-primary-light-9',
-    'dark:focus-visible:outline-primary-dark-9',
+    'focus-visible:outline-primary-9',
 
     'disabled:opacity-40',
     'disabled:cursor-not-allowed',
+
+    'data-[invalid=true]:[&:not(:checked)]:border-error-9',
   ],
   {
     variants: {
-      rounded: {
-        none: ['rounded-none'],
-        full: ['rounded-full'],
-      },
       variant: {
-        filled: ['bg-neutral-light-5', 'dark:bg-neutral-dark-5'],
+        filled: ['bg-neutral-5', 'border-neutral-5', 'before:bg-layout-background'],
         outline: [
           'bg-transparent',
-          'border-2',
-          'border-neutral-light-6',
-          'dark:border-neutral-dark-6',
+          'border-neutral-7',
+
+          'before:bg-neutral-7',
+
+          'enabled:hover:border-neutral-8',
+          'enabled:hover:before:bg-neutral-8',
+
+          'checked:before:bg-layout-background',
+          'checked:enabled:hover:before:bg-layout-background',
         ],
       },
       size: {
-        xs: ['h-5', 'w-8'],
-        sm: ['h-6', 'w-10'],
-        md: ['h-7', 'w-11'],
-        lg: ['h-8', 'w-14'],
-        xl: ['h-9', 'w-16'],
+        xs: ['h-5', 'w-8', 'before:h-3', 'before:w-3', 'checked:before:translate-x-3'],
+        sm: ['h-6', 'w-10', 'before:h-4', 'before:w-4', 'checked:before:translate-x-4'],
+        md: ['h-7', 'w-11', 'before:h-5', 'before:w-5', 'checked:before:translate-x-4'],
+        lg: ['h-8', 'w-14', 'before:h-6', 'before:w-6', 'checked:before:translate-x-6'],
+        xl: ['h-9', 'w-16', 'before:h-7', 'before:w-7', 'checked:before:translate-x-7'],
       },
       color: {
-        primary: [''],
-        secondary: [''],
-        success: [''],
-        warning: [''],
-        error: [''],
+        primary: [
+          'checked:bg-primary-9',
+          'checked:border-primary-9',
+          'checked:enabled:hover:bg-primary-10',
+          'checked:enabled:hover:border-primary-10',
+        ],
+        secondary: [
+          'checked:bg-secondary-9',
+          'checked:border-secondary-9',
+          'checked:enabled:hover:bg-secondary-10',
+          'checked:enabled:hover:border-secondary-10',
+        ],
+        success: [
+          'checked:bg-success-9',
+          'checked:border-success-9',
+          'checked:enabled:hover:bg-success-10',
+          'checked:enabled:hover:border-success-10',
+        ],
+        warning: [
+          'checked:bg-warning-9',
+          'checked:border-warning-9',
+          'checked:enabled:hover:bg-warning-10',
+          'checked:enabled:hover:border-warning-10',
+        ],
+        error: [
+          'checked:bg-error-9',
+          'checked:border-error-9',
+          'checked:enabled:hover:bg-error-10',
+          'checked:enabled:hover:border-error-10',
+        ],
+      },
+      rounded: {
+        none: ['rounded-none', 'before:rounded-none'],
+        squared: ['rounded-[2px]', 'before:rounded-[2px]'],
+        full: ['rounded-full', 'before:rounded-full'],
       },
     },
-    compoundVariants: [
-      // color primary
-      {
-        color: 'primary',
-        variant: 'filled',
-        className: [
-          'data-[state=checked]:bg-primary-light-9',
-          'data-[state=checked]:enabled:hover:bg-primary-light-10',
-
-          'dark:data-[state=checked]:bg-primary-dark-9',
-          'dark:data-[state=checked]:enabled:hover:bg-primary-dark-10',
-        ],
-      },
-      {
-        color: 'primary',
-        variant: 'outline',
-        className: [
-          'enabled:hover:border-primary-light-9',
-          'data-[state=checked]:border-primary-light-9',
-          'data-[state=checked]:enabled:hover:border-primary-light-10',
-          'data-[state=checked]:bg-primary-light-9',
-          'data-[state=checked]:enabled:hover:bg-primary-light-10',
-
-          'dark:enabled:hover:border-primary-dark-9',
-          'dark:data-[state=checked]:border-primary-dark-9',
-          'dark:data-[state=checked]:enabled:hover:border-primary-dark-10',
-          'dark:data-[state=checked]:bg-primary-dark-9',
-          'dark:data-[state=checked]:enabled:hover:bg-primary-dark-10',
-        ],
-      },
-
-      // color secondary
-      {
-        color: 'secondary',
-        variant: 'filled',
-        className: [
-          'data-[state=checked]:bg-secondary-light-9',
-          'data-[state=checked]:enabled:hover:bg-secondary-light-10',
-
-          'dark:data-[state=checked]:bg-secondary-dark-9',
-          'dark:data-[state=checked]:enabled:hover:bg-secondary-dark-10',
-        ],
-      },
-      {
-        color: 'secondary',
-        variant: 'outline',
-        className: [
-          'enabled:hover:border-secondary-light-9',
-          'data-[state=checked]:border-secondary-light-9',
-          'data-[state=checked]:enabled:hover:border-secondary-light-10',
-          'data-[state=checked]:bg-secondary-light-9',
-          'data-[state=checked]:enabled:hover:bg-secondary-light-10',
-
-          'dark:enabled:hover:border-secondary-dark-9',
-          'dark:data-[state=checked]:border-secondary-dark-9',
-          'dark:data-[state=checked]:enabled:hover:border-secondary-dark-10',
-          'dark:data-[state=checked]:bg-secondary-dark-9',
-          'dark:data-[state=checked]:enabled:hover:bg-secondary-dark-10',
-        ],
-      },
-
-      // color success
-      {
-        color: 'success',
-        variant: 'filled',
-        className: [
-          'data-[state=checked]:bg-success-light-9',
-          'data-[state=checked]:enabled:hover:bg-success-light-10',
-
-          'dark:data-[state=checked]:bg-success-dark-9',
-          'dark:data-[state=checked]:enabled:hover:bg-success-dark-10',
-        ],
-      },
-      {
-        color: 'success',
-        variant: 'outline',
-        className: [
-          'enabled:hover:border-success-light-9',
-          'data-[state=checked]:border-success-light-9',
-          'data-[state=checked]:enabled:hover:border-success-light-10',
-          'data-[state=checked]:bg-success-light-9',
-          'data-[state=checked]:enabled:hover:bg-success-light-10',
-
-          'dark:enabled:hover:border-success-dark-9',
-          'dark:data-[state=checked]:border-success-dark-9',
-          'dark:data-[state=checked]:enabled:hover:border-success-dark-10',
-          'dark:data-[state=checked]:bg-success-dark-9',
-          'dark:data-[state=checked]:enabled:hover:bg-success-dark-10',
-        ],
-      },
-
-      // color warning
-      {
-        color: 'warning',
-        variant: 'filled',
-        className: [
-          'data-[state=checked]:bg-warning-light-9',
-          'data-[state=checked]:enabled:hover:bg-warning-light-10',
-
-          'dark:data-[state=checked]:bg-warning-dark-9',
-          'dark:data-[state=checked]:enabled:hover:bg-warning-dark-10',
-        ],
-      },
-      {
-        color: 'warning',
-        variant: 'outline',
-        className: [
-          'enabled:hover:border-warning-light-9',
-          'data-[state=checked]:border-warning-light-9',
-          'data-[state=checked]:enabled:hover:border-warning-light-10',
-          'data-[state=checked]:bg-warning-light-9',
-          'data-[state=checked]:enabled:hover:bg-warning-light-10',
-
-          'dark:enabled:hover:border-warning-dark-9',
-          'dark:data-[state=checked]:border-warning-dark-9',
-          'dark:data-[state=checked]:enabled:hover:border-warning-dark-10',
-          'dark:data-[state=checked]:bg-warning-dark-9',
-          'dark:data-[state=checked]:enabled:hover:bg-warning-dark-10',
-        ],
-      },
-
-      // color error
-      {
-        color: 'error',
-        variant: 'filled',
-        className: [
-          'data-[state=checked]:bg-error-light-9',
-          'data-[state=checked]:enabled:hover:bg-error-light-10',
-
-          'dark:data-[state=checked]:bg-error-dark-9',
-          'dark:data-[state=checked]:enabled:hover:bg-error-dark-10',
-        ],
-      },
-      {
-        color: 'error',
-        variant: 'outline',
-        className: [
-          'enabled:hover:border-error-light-9',
-          'data-[state=checked]:border-error-light-9',
-          'data-[state=checked]:enabled:hover:border-error-light-10',
-          'data-[state=checked]:bg-error-light-9',
-          'data-[state=checked]:enabled:hover:bg-error-light-10',
-
-          'dark:enabled:hover:border-error-dark-9',
-          'dark:data-[state=checked]:border-error-dark-9',
-          'dark:data-[state=checked]:enabled:hover:border-error-dark-10',
-          'dark:data-[state=checked]:bg-error-dark-9',
-          'dark:data-[state=checked]:enabled:hover:bg-error-dark-10',
-        ],
-      },
-    ],
   }
 );
