@@ -43,6 +43,23 @@ function Demo() {
 }
 ```
 
+## Required Indicator
+
+Indicator will only show up after label content when the prop `required` is `true`. Pass the `requiredIndicator` prop to change indicator.
+
+```jsx
+import { Switch } from '@simplyui/react';
+
+function Demo() {
+  return (
+    <div className="flex flex-col gap-y-4">
+      <Switch required label="Default requiredIndicator" />
+      <Switch required requiredIndicator="[required]" label="Custom requiredIndicator" />
+    </div>
+  );
+}
+```
+
 ## Description
 
 Pass the `description` prop to set message that tells users more details about the switch functionality.
@@ -176,6 +193,24 @@ function Demo() {
       <Switch color="success" defaultChecked label="Switch color success" />
       <Switch color="warning" defaultChecked label="Switch color warning" />
       <Switch color="error" defaultChecked label="Switch color error" />
+    </div>
+  );
+}
+```
+
+## Rounded
+
+Pass the `rounded` prop to change value of the border-radius. The default is `full`.
+
+```jsx
+import { Switch } from '@simplyui/react';
+
+function Demo() {
+  return (
+    <div className="flex flex-col gap-y-4">
+      <Switch rounded="none" label="Rounded none" />
+      <Switch rounded="squared" label="Rounded squared" />
+      <Switch rounded="full" label="Rounded full" />
     </div>
   );
 }
