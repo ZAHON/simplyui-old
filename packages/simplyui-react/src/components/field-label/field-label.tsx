@@ -2,7 +2,7 @@ import type { FieldLabelProps } from './field-label.types';
 import { forwardRef } from 'react';
 import { Root } from '@radix-ui/react-label';
 import { twMerge } from 'tailwind-merge';
-import { applayComponentDefaultProps } from '../../../utils';
+import { applayComponentDefaultProps } from '../../utils';
 import { fieldLabelStyles } from './field-label.styles';
 
 const defaultProps: Partial<FieldLabelProps> = {

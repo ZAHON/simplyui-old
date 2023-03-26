@@ -1,5 +1,5 @@
 import type { LabelHTMLAttributes, ReactNode } from 'react';
-import type { Size } from '../../../types';
+import type { Size } from '../../types';
 
 export interface FieldLabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
   /**
