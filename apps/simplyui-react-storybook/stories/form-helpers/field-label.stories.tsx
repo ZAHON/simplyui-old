@@ -1,7 +1,7 @@
 import React from 'react';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 
-import { FieldLabel } from '@simplyui/react/src/components/form-helpers';
+import { FieldLabel } from '@simplyui/react/src';
 
 export default {
   title: 'Form helpers/FieldLabel',
