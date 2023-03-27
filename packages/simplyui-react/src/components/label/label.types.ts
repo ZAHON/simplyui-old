@@ -1,19 +1,19 @@
 import type { LabelHTMLAttributes, ReactNode } from 'react';
 import type { Size } from '../../types';
 
-export interface FieldLabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
+export interface LabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
   /**
-   * The id of the element the field label is associated with.
+   * The id of the element the label is associated with.
    */
   htmlFor: string;
 
   /**
-   * The content of the field label.
+   * The content of the label.
    */
   children: ReactNode;
 
   /**
-   * If true, the field label will be disabled and have "data-disabled" attribute.
+   * If true, the label will be disabled and have "data-disabled" attribute.
    * @default false
    */
   disabled?: boolean;
@@ -25,19 +25,19 @@ export interface FieldLabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
   requiredIndicator?: ReactNode;
 
   /**
-   * If true, add required indicator after field label content.
+   * If true, add required indicator after label content.
    * @default false
    */
   withRequiredIndicator?: boolean;
 
   /**
-   * The size of the field label.
+   * The size of the label.
    * @default "md"
    */
   size?: Size;
 
   /**
-   * Override field label default styles.
+   * Override label default styles.
    */
   className?: string;
 

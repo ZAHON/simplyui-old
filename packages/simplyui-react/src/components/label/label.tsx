@@ -1,19 +1,16 @@
-import type { FieldLabelProps } from './field-label.types';
+import type { LabelProps } from './label.types';
 import { forwardRef } from 'react';
 import { Root } from '@radix-ui/react-label';
 import { twMerge } from 'tailwind-merge';
 import { applayComponentDefaultProps } from '../../utils';
-import { fieldLabelStyles } from './field-label.styles';
+import { labelStyles } from './label.styles';
 
-const defaultProps: Partial<FieldLabelProps> = {
+const defaultProps: Partial<LabelProps> = {
   size: 'md',
   requiredIndicator: ' *',
 };
 
-export const FieldLabel = forwardRef<HTMLLabelElement, FieldLabelProps>(function FieldLabel(
-  props,
-  ref
-) {
+export const Label = forwardRef<HTMLLabelElement, LabelProps>(function FieldLabel(props, ref) {
   const {
     size,
     disabled,
@@ -32,7 +29,7 @@ export const FieldLabel = forwardRef<HTMLLabelElement, FieldLabelProps>(function
       {...others}
       ref={ref}
       data-disabled={dataDisabled}
-      className={twMerge(fieldLabelStyles({ size }), className)}
+      className={twMerge(labelStyles({ size }), className)}
     >
       {children}
       {withRequiredIndicator && (
@@ -48,4 +45,4 @@ export const FieldLabel = forwardRef<HTMLLabelElement, FieldLabelProps>(function
   );
 });
 
-FieldLabel.displayName = 'FieldLabel';
+Label.displayName = 'Label';
