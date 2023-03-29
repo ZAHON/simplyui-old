@@ -1,5 +1,5 @@
 module.exports = {
-  '[data-theme=light]': {
+  '.light, [data-theme=light]': {
     'color-scheme': 'light',
 
     // layout

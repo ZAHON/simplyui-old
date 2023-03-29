@@ -1,5 +1,5 @@
 module.exports = {
-  '[data-theme=dark]': {
+  '.dark, [data-theme=dark]': {
     'color-scheme': 'dark',
 
     // layout
