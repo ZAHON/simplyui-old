@@ -3,17 +3,12 @@ const path = require('path');
 module.exports = {
   stories: ['../stories/**/*.stories.@(js|jsx|ts|tsx)'],
   addons: [
+    'storybook-dark-mode',
     '@storybook/addon-links',
     '@storybook/addon-essentials',
     '@storybook/addon-interactions',
     '@storybook/addon-a11y',
     'storybook-addon-css-user-preferences',
-    {
-      name: '@storybook/addon-styling',
-      options: {
-        postCss: true,
-      },
-    },
   ],
   framework: '@storybook/react',
   core: {

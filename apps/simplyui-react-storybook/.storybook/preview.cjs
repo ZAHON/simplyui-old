@@ -1,7 +1,15 @@
 import './tailwind-output.css';
-import { withThemeByDataAttribute } from '@storybook/addon-styling';
+import { themes } from '@storybook/theming';
 
 export const parameters = {
+  darkMode: {
+    darkClass: 'dark',
+    lightClass: 'light',
+    classTarget: 'html',
+    stylePreview: true,
+    dark: { ...themes.dark },
+    light: { ...themes.normal },
+  },
   cssUserPrefs: {
     'prefers-reduced-motion': 'no-preference',
   },
@@ -13,14 +21,3 @@ export const parameters = {
     },
   },
 };
-
-export const decorators = [
-  withThemeByDataAttribute({
-    themes: {
-      light: 'light',
-      dark: 'dark',
-    },
-    defaultTheme: 'light',
-    attributeName: 'data-theme',
-  }),
-];
