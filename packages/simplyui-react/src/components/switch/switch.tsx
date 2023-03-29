@@ -2,7 +2,7 @@ import type { SwitchProps } from './switch.types';
 import { forwardRef, useId } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { applayComponentDefaultProps } from '../../utils';
-import { FieldLabel, FieldDescription, FieldErrorMessage } from '../form-helpers';
+import { Label } from '../label';
 import { switchStyles } from './switch.styles';
 
 const defaultProps: Partial<SwitchProps> = {
@@ -40,13 +40,15 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(function Switch(
   } = applayComponentDefaultProps(defaultProps, props);
 
   const uuid = useId();
+
   const inputId = id || uuid;
+  const dataDisabled = disabled ? '' : undefined;
 
   const labelWrapper =
     label || description || errorMessage ? (
       <div className={twMerge('flex flex-col', labelWrapperClassName)}>
         {label && (
-          <FieldLabel
+          <Label
             htmlFor={inputId}
             disabled={disabled}
             withRequiredIndicator={required}
@@ -55,32 +57,45 @@ export const Switch = forwardRef<HTMLInputElement, SwitchProps>(function Switch(
             requiredIndicatorClassName={requiredIndicatorClassName}
           >
             {label}
-          </FieldLabel>
+          </Label>
         )}
         {description && (
-          <FieldDescription disabled={disabled} className={descriptionClassName}>
+          <span
+            data-disabled={dataDisabled}
+            className={twMerge(
+              'text-xs cursor-default font-light text-neutral-12 motion-safe:transition motion-safe:duration-150 data-[disabled]:opacity-40 data-[disabled]:select-none',
+              descriptionClassName
+            )}
+          >
             {description}
-          </FieldDescription>
+          </span>
         )}
         {invalid && errorMessage && (
-          <FieldErrorMessage disabled={disabled} className={errorMessageClassName}>
+          <span
+            aria-live="polite"
+            data-disabled={dataDisabled}
+            className={twMerge(
+              'text-xs cursor-default font-light text-error-11 motion-safe:transition motion-safe:duration-150 data-[disabled]:opacity-40 data-[disabled]:select-none',
+              errorMessageClassName
+            )}
+          >
             {errorMessage}
-          </FieldErrorMessage>
+          </span>
         )}
       </div>
     ) : undefined;
 
   return (
-    <div className={twMerge('flex items-center gap-x-3', rootClassName)}>
+    <div role="group" className={twMerge('flex items-center gap-x-3', rootClassName)}>
       {labelPosition === 'left' && labelWrapper}
       <input
         {...others}
         ref={ref}
         id={inputId}
         disabled={disabled}
-        aria-required={required}
-        aria-invalid={invalid}
-        data-invalid={invalid}
+        aria-required={required ? true : undefined}
+        aria-invalid={invalid ? 'true' : undefined}
+        data-invalid={invalid ? '' : undefined}
         type="checkbox"
         role="switch"
         className={twMerge(switchStyles({ variant, size, color, rounded }), inputClassName)}

@@ -25,7 +25,7 @@ export const switchStyles = cva(
     'disabled:opacity-40',
     'disabled:cursor-not-allowed',
 
-    'data-[invalid=true]:[&:not(:checked)]:border-error-9',
+    'data-[invalid]:[&:not(:checked)]:border-error-9',
   ],
   {
     variants: {
