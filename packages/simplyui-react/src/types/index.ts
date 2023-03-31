@@ -12,4 +12,4 @@ export type Rounded =
   | 'squared'
   | 'full';
 
-export type Color = 'neutral' | 'primary' | 'secondary' | 'success' | 'warning' | 'error';
+export type Color = 'neutral' | 'primary' | 'secondary' | 'info' | 'success' | 'warning' | 'error';
