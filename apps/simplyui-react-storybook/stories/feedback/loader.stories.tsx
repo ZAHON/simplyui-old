@@ -10,7 +10,8 @@ export default {
     variant: 'oval',
     size: 'md',
     color: 'primary',
-    speed: 800,
+    speed: 750,
+    reduceSpeed: 1500,
     label: 'Loading...',
   },
   argTypes: {
@@ -34,22 +35,7 @@ Spinner.args = {
   variant: 'spinner',
 };
 
-export const CustomLabel = Template.bind({});
-CustomLabel.args = {
-  label: 'Loading Test...',
-};
-
-export const CustomSpeed = Template.bind({});
-CustomSpeed.args = {
-  speed: 2000,
-};
-
 export const CustomSize = Template.bind({});
 CustomSize.args = {
   className: '[--loader-size:100px] [--loader-border:10px]',
-};
-
-export const CustomColor = Template.bind({});
-CustomColor.args = {
-  className: 'text-[#ee02f2] dark:text-[#b1f702]',
 };
