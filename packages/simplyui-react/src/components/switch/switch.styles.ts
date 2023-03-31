@@ -64,6 +64,12 @@ export const switchStyles = cva(
           'checked:enabled:hover:bg-secondary-10',
           'checked:enabled:hover:border-secondary-10',
         ],
+        info: [
+          'checked:bg-info-9',
+          'checked:border-info-9',
+          'checked:enabled:hover:bg-info-10',
+          'checked:enabled:hover:border-info-10',
+        ],
         success: [
           'checked:bg-success-9',
           'checked:border-success-9',
