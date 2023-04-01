@@ -19,7 +19,8 @@ export const loaderStyles = cva(
           'border-[length:var(--loader-border)]',
           'border-current',
           'border-r-transparent',
-          'animate-[spin_var(--loader-animation-duration)_linear_infinite]',
+          'motion-safe:animate-[spin_var(--loader-animation-duration)_linear_infinite]',
+          'motion-reduce:animate-[spin_var(--loader-reduce-animation-duration)_linear_infinite]',
         ],
         oval: [
           'before:content-[""]',
@@ -31,7 +32,8 @@ export const loaderStyles = cva(
           'before:border-[length:var(--loader-border)]',
           'before:border-transparent',
           'before:border-b-current',
-          'before:animate-[spin_var(--loader-animation-duration)_linear_infinite]',
+          'before:motion-safe:animate-[spin_var(--loader-animation-duration)_linear_infinite]',
+          'before:motion-reduce:animate-[spin_var(--loader-reduce-animation-duration)_linear_infinite]',
 
           'after:content-[""]',
           'after:absolute',
@@ -53,7 +55,8 @@ export const loaderStyles = cva(
           'before:border-[length:var(--loader-border)]',
           'before:border-transparent',
           'before:border-b-current',
-          'before:animate-[spin_var(--loader-animation-duration)_ease_infinite]',
+          'before:motion-safe:animate-[spin_var(--loader-animation-duration)_ease_infinite]',
+          'before:motion-reduce:animate-[spin_var(--loader-reduce-animation-duration)_ease_infinite]',
 
           'after:content-[""]',
           'after:absolute',
@@ -66,7 +69,8 @@ export const loaderStyles = cva(
           'after:border-dotted',
           'after:border-transparent',
           'after:border-b-current',
-          'after:animate-[spin_var(--loader-animation-duration)_linear_infinite]',
+          'after:motion-safe:animate-[spin_var(--loader-animation-duration)_linear_infinite]',
+          'after:motion-reduce:animate-[spin_var(--loader-reduce-animation-duration)_linear_infinite]',
         ],
       },
       size: {
@@ -78,14 +82,13 @@ export const loaderStyles = cva(
       },
       color: {
         currentColor: ['text-current'],
-
-        // Colors
-        neutral: ['text-neutral-light-9', 'dark:text-neutral-dark-9'],
-        primary: ['text-primary-light-9', 'dark:text-primary-dark-9'],
-        secondary: ['text-secondary-light-9', 'dark:text-secondary-dark-9'],
-        success: ['text-success-light-9', 'dark:text-success-dark-9'],
-        warning: ['text-warning-light-9', 'dark:text-warning-dark-9'],
-        error: ['text-error-light-9', 'dark:text-error-dark-9'],
+        neutral: ['text-neutral-9'],
+        primary: ['text-primary-9'],
+        secondary: ['text-secondary-9'],
+        info: ['text-info-9'],
+        success: ['text-success-9'],
+        warning: ['text-warning-9'],
+        error: ['text-error-9'],
       },
     },
   }

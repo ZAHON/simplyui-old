@@ -3,48 +3,48 @@ import type { Size, Color } from '../../types';
 
 export interface LoaderProps extends HTMLAttributes<HTMLDivElement> {
   /**
-   * The variant of the Loader.
+   * The variant of the loader.
    * @default "oval"
    */
   variant?: 'border' | 'oval' | 'spinner';
 
   /**
-   * The size of the Loader.
+   * The size of the loader.
    * @default "md"
    */
   size?: Size;
 
   /**
-   * The color of the Loader.
+   * The color of the loader.
    * @default "primary"
    */
   color?: 'currentColor' | Color;
 
   /**
-   * The speed of the Loader in ms.
-   * @default 800
+   * The speed of the loader animation in ms. On browsers that support `prefers-reduced-motion`, and where the user has not explicitly signaled that they’d prefer reduced motion (i.e. where `prefers-reduced-motion: no-preference`), this value will be used as the duration of the animation.
+   * @default 750
    */
   speed?: number;
 
   /**
-   * For accessibility, it is important to add a fallback loading text.
-   * This text will be visible to screen readers.
+   * The reduce speed of the loader animation in ms. On browsers that support `prefers-reduced-motion`, and where the user has explicitly signaled that they’d prefer reduced motion (i.e. where `prefers-reduced-motion: reduce`), this value will be used as the duration of the animation.
+   * @default 1500
+   */
+  reduceSpeed?: number;
+
+  /**
+   * For accessibility, it is important to add a fallback loading text. This text will be visible to screen readers.
    * @default "Loading..."
    */
   label?: string;
 
   /**
-   * Override Loader default styles.
-   *
-   * If you want to use a custom size add this CSS variables.
-   * @example
-   * ```jsx
-   * <Spinner className="[--loader-size:100px] [--loader-border:10px]"/>
-   * ```
+   * Override loader default styles.
    */
   className?: string;
 }
 
 export interface LoaderStyle extends CSSProperties {
   '--loader-animation-duration'?: string;
+  '--loader-reduce-animation-duration'?: string;
 }
