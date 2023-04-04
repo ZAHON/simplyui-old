@@ -5,4 +5,12 @@ module.exports = {
   singleQuote: true,
   tabWidth: 2,
   useTabs: false,
+  overrides: [
+    {
+      files: '*.md',
+      options: {
+        printWidth: 999,
+      },
+    },
+  ],
 };
