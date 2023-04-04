@@ -80,12 +80,3 @@ export const Indeterminate = Template.bind({});
 Indeterminate.args = {
   indeterminate: true,
 };
-
-export function Demo() {
-  return (
-    <>
-      <span id="progress-label">Loading...</span>
-      <Progress aria-labelledby="progress-label" value={50} aria-label="Progress label" />
-    </>
-  );
-}
