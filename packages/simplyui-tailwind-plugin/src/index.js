@@ -5,6 +5,8 @@ const lightTheme = require('./themes/light');
 const colors = require('./colors');
 const base = require('./base');
 const borderRadius = require('./border-radius');
+const backgroundImage = require('./background-image');
+const animation = require('./animation');
 
 module.exports = plugin(
   function ({ addBase, addUtilities }) {
@@ -21,6 +23,8 @@ module.exports = plugin(
       extend: {
         ...colors,
         ...borderRadius,
+        ...backgroundImage,
+        ...animation,
       },
     },
   }
