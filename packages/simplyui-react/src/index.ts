@@ -1,3 +1,4 @@
+export * from './components/kbd';
 export * from './components/label';
 export * from './components/loader';
 export * from './components/progress';
