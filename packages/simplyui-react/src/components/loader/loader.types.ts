@@ -21,16 +21,16 @@ export interface LoaderProps extends HTMLAttributes<HTMLDivElement> {
   color?: 'currentColor' | Color;
 
   /**
-   * The speed of the loader animation in ms. On browsers that support `prefers-reduced-motion`, and where the user has not explicitly signaled that they’d prefer reduced motion (i.e. where `prefers-reduced-motion: no-preference`), this value will be used as the duration of the animation.
+   * The safe speed of the loader animation in ms. On browsers that support `prefers-reduced-motion`, and where the user has not explicitly signaled that they’d prefer reduced motion (i.e. where `prefers-reduced-motion: no-preference`), this value will be used as the duration of the animation.
    * @default 750
    */
-  speed?: number;
+  speedSafe?: number;
 
   /**
    * The reduce speed of the loader animation in ms. On browsers that support `prefers-reduced-motion`, and where the user has explicitly signaled that they’d prefer reduced motion (i.e. where `prefers-reduced-motion: reduce`), this value will be used as the duration of the animation.
    * @default 1500
    */
-  reduceSpeed?: number;
+  speedReduce?: number;
 
   /**
    * For accessibility, it is important to add a fallback loading text. This text will be visible to screen readers.

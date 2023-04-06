@@ -8,18 +8,18 @@ export const defaultProps: Partial<LoaderProps> = {
   variant: 'oval',
   size: 'md',
   color: 'primary',
-  speed: 750,
-  reduceSpeed: 1500,
+  speedSafe: 750,
+  speedReduce: 1500,
   label: 'Loading...',
 };
 
 export const Loader = forwardRef<HTMLDivElement, LoaderProps>(function Loader(props, ref) {
-  const { variant, size, color, speed, reduceSpeed, label, style, className, ...others } =
+  const { variant, size, color, speedSafe, speedReduce, label, style, className, ...others } =
     applayComponentDefaultProps(defaultProps, props);
 
   const loaderStyle: LoaderStyle = {
-    '--loader-animation-duration': `${speed}ms`,
-    '--loader-reduce-animation-duration': `${reduceSpeed}ms`,
+    '--loader-animation-duration': `${speedSafe}ms`,
+    '--loader-reduce-animation-duration': `${speedReduce}ms`,
   };
 
   return (
