@@ -4,6 +4,7 @@ module.exports = {
       'progress-stripes var(--progress-stripes-animation-duration) linear infinite',
     'progress-indeterminate':
       'progress-indeterminate var(--progress-indeterminate-animation-duration) ease infinite normal none running',
+    'skeleton-fade': 'skeleton-fade var(--skeleton-animation-duration) linear infinite',
   },
   keyframes: {
     'progress-stripes': {
@@ -13,6 +14,11 @@ module.exports = {
     'progress-indeterminate': {
       '0%': { transform: 'translateX(-200%)' },
       '100%': { transform: 'translateX(200%)' },
+    },
+    'skeleton-fade': {
+      '0%': { opacity: 0.1 },
+      '50%': { opacity: 1 },
+      '100%': { opacity: 0.1 },
     },
   },
 };
