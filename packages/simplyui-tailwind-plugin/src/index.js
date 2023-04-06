@@ -7,6 +7,7 @@ const base = require('./base');
 const borderRadius = require('./border-radius');
 const backgroundImage = require('./background-image');
 const animation = require('./animation');
+const boxShadow = require('./box-shadow');
 
 module.exports = plugin(
   function ({ addBase, addUtilities }) {
@@ -25,6 +26,7 @@ module.exports = plugin(
         ...borderRadius,
         ...backgroundImage,
         ...animation,
+        ...boxShadow,
       },
     },
   }
