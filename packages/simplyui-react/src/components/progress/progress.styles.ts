@@ -5,9 +5,9 @@ export const progressTrackStyles = cva(['overflow-hidden'], {
     size: {
       xs: ['h-1'],
       sm: ['h-2'],
-      md: ['h-4', 'text-xs'],
-      lg: ['h-6', 'text-sm'],
-      xl: ['h-7', 'text-md'],
+      md: ['h-4'],
+      lg: ['h-6'],
+      xl: ['h-7'],
     },
     backgroundColor: {
       neutral: ['bg-neutral-5'],
@@ -72,10 +72,10 @@ export const progressLabelWrapperStyles = cva(
     variants: {
       size: {
         xs: ['text-xs'],
-        sm: ['text-xs'],
-        md: ['text-sm'],
-        lg: ['text-base'],
-        xl: ['text-lg'],
+        sm: ['text-sm'],
+        md: ['text-base'],
+        lg: ['text-lg'],
+        xl: ['text-xl'],
       },
     },
   }
