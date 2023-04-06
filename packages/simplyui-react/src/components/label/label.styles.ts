@@ -14,10 +14,10 @@ export const labelStyles = cva(
     variants: {
       size: {
         xs: ['text-xs'],
-        sm: ['text-xs'],
-        md: ['text-sm'],
-        lg: ['text-base'],
-        xl: ['text-lg'],
+        sm: ['text-sm'],
+        md: ['text-base'],
+        lg: ['text-lg'],
+        xl: ['text-xl'],
       },
     },
   }
