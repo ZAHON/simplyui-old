@@ -10,8 +10,8 @@ export default {
     variant: 'oval',
     size: 'md',
     color: 'primary',
-    speed: 750,
-    reduceSpeed: 1500,
+    speedSafe: 750,
+    speedReduce: 1500,
     label: 'Loading...',
   },
   argTypes: {
