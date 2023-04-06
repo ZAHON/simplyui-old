@@ -83,14 +83,14 @@ function Demo() {
 
 The animation duration of this component is dependent on the `prefers-reduced-motion` media query.
 
-- On browsers that support `prefers-reduced-motion`, and where the user has not explicitly signaled that they’d prefer reduced motion (i.e. where `prefers-reduced-motion: no-preference`), the value of the `speed` property will be used as the duration of the animation. The `speed` property default value is `750`.
-- On browsers that support `prefers-reduced-motion`, and where the user has explicitly signaled that they’d prefer reduced motion (i.e. where `prefers-reduced-motion: reduce`), the value of the `reduceSpeed` property will be used as the duration of the animation. The `reduceSpeed` property default value is `1500`.
+- On browsers that support `prefers-reduced-motion`, and where the user has not explicitly signaled that they’d prefer reduced motion (i.e. where `prefers-reduced-motion: no-preference`), the value of the `speedSafe` property will be used as the duration of the animation. The `speedSafe` property default value is `750`.
+- On browsers that support `prefers-reduced-motion`, and where the user has explicitly signaled that they’d prefer reduced motion (i.e. where `prefers-reduced-motion: reduce`), the value of the `speedReduce` property will be used as the duration of the animation. The `speedReduce` property default value is `1500`.
 
 ```jsx
 import { Loader } from '@simplyui/react';
 
 function Demo() {
-  return <Loader speed={650} reduceSpeed={2000} />;
+  return <Loader speedSafe={650} speedReduce={2000} />;
 }
 ```
 
