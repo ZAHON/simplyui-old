@@ -16,21 +16,21 @@ describe('Loader', () => {
     expect(screen.getByRole('status')).toHaveClass(className);
   });
 
-  it('should have speed handed over when speed provided', () => {
-    const speed = 500;
+  it('should have appropriate css variable with value when property speedSafe provided', () => {
+    const speedSafe = 500;
 
-    render(<Loader speed={speed} />);
+    render(<Loader speedSafe={speedSafe} />);
     expect(screen.getByRole('status')).toHaveStyle({
-      '--loader-animation-duration': `${speed}ms`,
+      '--loader-animation-duration': `${speedSafe}ms`,
     });
   });
 
-  it('should have reduce speed handed over when reduceSpeed provided', () => {
-    const reduceSpeed = 3000;
+  it('should have appropriate css variable with value when property speedReduce provided', () => {
+    const speedReduce = 3000;
 
-    render(<Loader reduceSpeed={reduceSpeed} />);
+    render(<Loader speedReduce={speedReduce} />);
     expect(screen.getByRole('status')).toHaveStyle({
-      '--loader-reduce-animation-duration': `${reduceSpeed}ms`,
+      '--loader-reduce-animation-duration': `${speedReduce}ms`,
     });
   });
 
