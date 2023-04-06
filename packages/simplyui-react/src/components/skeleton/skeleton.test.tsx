@@ -64,30 +64,4 @@ describe('Skeleton', () => {
       '--skeleton-reduce-animation-duration': `${speedReduce}ms`,
     });
   });
-
-  // describe('Skeleton content', () => {
-  //   const skeletonContent = 'Skeleton content';
-
-  //   function SkeletonWithContent(props: SkeletonProps) {
-  //     return (
-  //       <Skeleton {...props}>
-  //         <p>{skeletonContent}</p>
-  //       </Skeleton>
-  //     );
-  //   }
-
-  //   function getSkeletonContentElement() {
-  //     return screen.getByText(skeletonContent);
-  //   }
-
-  //   it('should be visible when property visible not provided', () => {
-  //     render(<SkeletonWithContent visible={false} />);
-  //     expect(getSkeletonContentElement()).toBeVisible();
-  //   });
-
-  //   it('should be invisible when property visible provided', () => {
-  //     render(<SkeletonWithContent visible={true} />);
-  //     expect(getSkeletonContentElement()).not.toBeVisible();
-  //   });
-  // });
 });
