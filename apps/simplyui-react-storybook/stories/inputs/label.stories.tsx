@@ -8,7 +8,7 @@ export default {
   component: Label,
   args: {
     htmlFor: 'input-id',
-    children: 'Field Label',
+    children: 'Label',
     disabled: false,
     size: 'md',
     requiredIndicator: ' *',
