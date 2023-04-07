@@ -1,3 +1,4 @@
+export * from './components/burger';
 export * from './components/code';
 export * from './components/kbd';
 export * from './components/label';
