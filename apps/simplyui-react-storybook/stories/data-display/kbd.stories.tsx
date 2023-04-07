@@ -7,6 +7,7 @@ export default {
   title: 'Data display/Kbd',
   component: Kbd,
   args: {
+    children: '⌘',
     size: 'sm',
     rounded: 'xs',
   },
@@ -21,6 +22,3 @@ export default {
 const Template: ComponentStory<typeof Kbd> = (args) => <Kbd {...args} />;
 
 export const Default = Template.bind({});
-Default.args = {
-  children: '⌘',
-};
