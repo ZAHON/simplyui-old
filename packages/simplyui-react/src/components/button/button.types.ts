@@ -1,99 +1,127 @@
-import type { ButtonHTMLAttributes, ReactNode } from 'react';
+import type { ButtonHTMLAttributes, ReactNode, CSSProperties } from 'react';
+import type { ButtonLoaderProps } from './button-loader/button-loader.types';
 import type { Size, Rounded, Color } from '../../types';
-import type { LoaderProps } from '../loader/loader.types';
 
-export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+type HTMLAttributesToOmit = 'className' | 'style';
+
+export interface ButtonProps
+  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, HTMLAttributesToOmit> {
   /**
-   * The content of the Button.
+   * The content of the button.
    */
-  children?: ReactNode;
+  children: ReactNode;
 
   /**
-   * The size of the Button.
+   * The size of the button.
    * @default "md"
    */
   size?: Size;
 
   /**
-   * The variant of the Button.
+   * The variant of the button.
    * @default "filled"
    */
   variant?: 'filled' | 'light' | 'outline' | 'subtle';
 
   /**
-   * The color of the Button.
+   * The color of the button.
    * @default "primary"
    */
   color?: Color;
 
   /**
-   * Sets Button width to 100% of parent element.
+   * If `true`, the button will have 100% width of his parent.
    * @default false
    */
   fullWidth?: boolean;
 
   /**
-   * Sets the border radius of the Button, overwrites the value specified by size prop.
-   * @default undefined
+   * The border radius value of the button. This property override border radius value provided by `size` proporty.
    */
-  rounded?: Rounded;
+  rounded?: Exclude<Rounded, 'squared'>;
 
   /**
-   * Set text-transform to uppercase.
+   * If `true`, the text inside button will be uppercase.
    * @default false
    */
   uppercase?: boolean;
 
   /**
-   * The type of the Button.
-   * @default "button"
-   */
-  type?: 'submit' | 'reset' | 'button';
-
-  /**
-   * If true, the Button will be disabled.
-   * @default false
-   */
-  disabled?: boolean;
-
-  /**
-   * If true, the Button will show a Loader.
+   * If `true`, the button will show a loader.
    * @default false
    */
   loading?: boolean;
 
   /**
-   * The label to show in the Button when loading is true If text is passed override the Button content.
-   * @default undefined
+   * The content to show in the button when `loading` is `true`.
    */
-  loadingText?: string;
+  loadingContent?: ReactNode;
 
   /**
-   * The Loader position relative to Button content.
+   * Replace the loader component when `loading` is set to `true`.
+   */
+  loader?: ReactNode;
+
+  /**
+   * Properties spread to loader component.
+   */
+  loaderProps?: Omit<ButtonLoaderProps, 'settings'>;
+
+  /**
+   * The loader component position relative to button content
    * @default "left"
    */
   loaderPosition?: 'left' | 'right';
 
   /**
-   * The Props spread to Loader component.
-   * @default undefined
+   * The type of the button.
+   * @default "button"
    */
-  loaderProps?: LoaderProps;
+  type?: 'submit' | 'reset' | 'button';
 
   /**
-   * If added, the Button will show an icon before the Button's content.
-   * @default undefined
+   * If true, the button will be disabled.
+   * @default false
+   */
+  disabled?: boolean;
+
+  /**
+   * If added, the button will show an icon before the button's content.
    */
   leftIcon?: ReactNode;
 
   /**
-   * If added, the Button will show an icon after the Button's content.
-   * @default undefined
+   * If added, the button will show an icon after the button's content.
    */
   rightIcon?: ReactNode;
 
   /**
-   * Override Button default styles.
+   * Override button default styles.
    */
   className?: string;
+
+  /**
+   * Override button default inline style.
+   */
+  style?: CSSProperties;
+
+  /**
+   * Override button left icon wrapper default styles.
+   */
+  leftIconClassName?: string;
+
+  /**
+   * Override button left icon wrapper default inline style.
+   */
+  leftIconStyle?: CSSProperties;
+
+  /**
+   * Override button right icon wrapper default styles.
+   */
+  rightIconClassName?: string;
+
+  /**
+   * Override button right icon wrapper default inline style.
+   */
+  rightIconStyle?: CSSProperties;
 }

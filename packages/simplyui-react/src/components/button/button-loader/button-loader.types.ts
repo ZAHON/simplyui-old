@@ -1,6 +1,8 @@
 import type { LoaderProps } from '../../loader/loader.types';
+import type { ButtonProps } from '../button.types';
 
-export type ButtonLoaderProps = {
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-  loaderProps?: LoaderProps;
-};
+export interface ButtonLoaderProps extends Omit<LoaderProps, 'size'> {
+  settings: {
+    size: ButtonProps['size'];
+  };
+}

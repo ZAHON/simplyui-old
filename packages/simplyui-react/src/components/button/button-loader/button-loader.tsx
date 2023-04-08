@@ -1,18 +1,20 @@
 import type { ButtonLoaderProps } from './button-loader.types';
 import { twMerge } from 'tailwind-merge';
-import { Loader } from '../../loader';
+import { applayComponentDefaultProps } from '../../../utils/applay-component-default-props';
+import { Loader } from '../../loader/loader';
 import { buttonLoaderStyles } from './button-loader.styles';
 
+const defaultProps: Partial<ButtonLoaderProps> = {
+  color: 'currentColor',
+};
+
 export function ButtonLoader(props: ButtonLoaderProps) {
-  const { size, loaderProps } = props;
+  const { settings, className, ...others } = applayComponentDefaultProps(defaultProps, props);
 
   return (
     <Loader
-      label={loaderProps?.label}
-      variant={loaderProps?.variant}
-      size={loaderProps?.size}
-      color={loaderProps?.color || 'currentColor'}
-      className={twMerge(buttonLoaderStyles({ size }), loaderProps?.className)}
+      {...others}
+      className={twMerge(buttonLoaderStyles({ size: settings.size }), className)}
     />
   );
 }
