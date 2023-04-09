@@ -3,12 +3,12 @@ import { forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { applayComponentDefaultProps } from '../../utils';
 import { ActionIconLoader } from './action-icon-loader/action-icon-loader';
-import { buttonStyles } from './action-icon.styles';
+import { actionIconStyles } from './action-icon.styles';
 
 const defaultProps: Partial<ActionIconProps> = {
   size: 'md',
   variant: 'subtle',
-  color: 'primary',
+  color: 'neutral',
   type: 'button',
 };
 
@@ -23,21 +23,28 @@ export const ActionIcon = forwardRef<HTMLButtonElement, ActionIconProps>(functio
     rounded,
     disabled,
     loading,
+    loader,
     loaderProps,
     className,
     children,
     ...others
   } = applayComponentDefaultProps(defaultProps, props);
 
+  const loaderComponent = loader ? (
+    loader
+  ) : (
+    <ActionIconLoader {...loaderProps} settings={{ size }} />
+  );
+  const actionIconLoader = loading ? loaderComponent : null;
+
   return (
     <button
       {...others}
       ref={ref}
       disabled={disabled || loading}
-      data-loading={loading}
-      className={twMerge(buttonStyles({ size, variant, color, rounded }), className)}
+      className={twMerge(actionIconStyles({ size, variant, color, rounded }), className)}
     >
-      <span>{loading ? <ActionIconLoader size={size} loaderProps={loaderProps} /> : children}</span>
+      <span>{loading ? actionIconLoader : children}</span>
     </button>
   );
 });

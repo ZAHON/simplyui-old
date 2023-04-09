@@ -1,6 +1,8 @@
 import type { LoaderProps } from '../../loader/loader.types';
+import type { ActionIconProps } from '../action-icon.types';
 
-export type ActionIconLoaderProps = {
-  size?: 'xs' | 'sm' | 'md' | 'lg' | 'xl';
-  loaderProps?: LoaderProps;
-};
+export interface ActionIconLoaderProps extends Omit<LoaderProps, 'size'> {
+  settings: {
+    size: ActionIconProps['size'];
+  };
+}

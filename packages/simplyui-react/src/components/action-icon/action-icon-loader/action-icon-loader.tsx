@@ -1,18 +1,17 @@
 import type { ActionIconLoaderProps } from './action-icon-loader.types';
 import { twMerge } from 'tailwind-merge';
+import { applayComponentDefaultProps } from '../../../utils/applay-component-default-props';
 import { Loader } from '../../loader/loader';
-import { actionIconLoaderStyles } from './action-icon-loader.styles';
+import { actionIconStyles } from './action-icon-loader.styles';
+
+const defaultProps: Partial<ActionIconLoaderProps> = {
+  color: 'currentColor',
+};
 
 export function ActionIconLoader(props: ActionIconLoaderProps) {
-  const { size, loaderProps } = props;
+  const { settings, className, ...others } = applayComponentDefaultProps(defaultProps, props);
 
   return (
-    <Loader
-      label={loaderProps?.label}
-      variant={loaderProps?.variant}
-      size={loaderProps?.size}
-      color={loaderProps?.color || 'currentColor'}
-      className={twMerge(actionIconLoaderStyles({ size }), loaderProps?.className)}
-    />
+    <Loader {...others} className={twMerge(actionIconStyles({ size: settings.size }), className)} />
   );
 }

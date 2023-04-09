@@ -1,3 +1,4 @@
+export * from './components/action-icon';
 export * from './components/burger';
 export * from './components/button';
 export * from './components/code';

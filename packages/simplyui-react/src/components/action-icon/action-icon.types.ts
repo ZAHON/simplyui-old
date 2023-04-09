@@ -1,68 +1,71 @@
-import type { ButtonHTMLAttributes, ReactNode } from 'react';
+import type { ButtonHTMLAttributes, CSSProperties, ReactNode } from 'react';
+import type { ActionIconLoaderProps } from './action-icon-loader/action-icon-loader.types';
 import type { Size, Rounded, Color } from '../../types';
-import type { LoaderProps } from '../loader/loader.types';
 
 export interface ActionIconProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /**
-   * A label that describes the ActionIcon content.
+   * The icon to be used in the button.
    */
-  'aria-label': string;
+  children: ReactNode;
 
   /**
-   * The icon to be used in the ActionIcon.
-   */
-  children?: ReactNode;
-
-  /**
-   * The size of the ActionIcon.
+   * The size of the action icon.
    * @default "md"
    */
   size?: Size;
 
   /**
-   * The variant of the ActionIcon.
+   * The variant of the action icon.
    * @default "subtle"
    */
   variant?: 'filled' | 'light' | 'outline' | 'subtle' | 'transparent';
 
   /**
-   * The color of the ActionIcon.
-   * @default "primary"
+   * The color of the action icon.
+   * @default "neutral"
    */
   color?: Color;
 
   /**
-   * Sets the border radius of the ActionIcon, overwrites the value specified by size prop.
-   * @default undefined
+   * The border radius value of the action icon. This property override border radius value provided by `size` proporty.
    */
-  rounded?: Rounded;
+  rounded?: Extract<Rounded, 'none' | 'squared' | 'full'>;
 
   /**
-   * The type of the ActionIcon.
+   * The type of the button.
    * @default "button"
    */
   type?: 'submit' | 'reset' | 'button';
 
   /**
-   * If true, the ActionIcon will be disabled.
+   * If `true`, the action icon will be disabled.
    * @default false
    */
   disabled?: boolean;
 
   /**
-   * If true, the ActionIcon will show a Loader.
+   * If `true`, the action icon will show a loader.
    * @default false
    */
   loading?: boolean;
 
   /**
-   * The Props spread to Loader component.
-   * @default undefined
+   * Replace the loader component when `loading` is set to `true`.
    */
-  loaderProps?: LoaderProps;
+  loader?: ReactNode;
 
   /**
-   * Override ActionIcon default styles.
+   * Properties spread to loader component.
+   */
+  loaderProps?: Omit<ActionIconLoaderProps, 'settings'>;
+
+  /**
+   * Override action icon default styles.
    */
   className?: string;
+
+  /**
+   * Override action icon default inline style.
+   */
+  style?: CSSProperties;
 }
