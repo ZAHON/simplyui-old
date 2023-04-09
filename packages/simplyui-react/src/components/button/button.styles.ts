@@ -85,7 +85,7 @@ export const buttonStyles = cva(
         color: 'neutral',
         variant: 'light',
         className: [
-          'text-neutral-11',
+          'text-neutral-12',
           'bg-neutral-4',
 
           'enabled:hover:bg-neutral-5',
@@ -97,7 +97,7 @@ export const buttonStyles = cva(
         color: 'neutral',
         variant: 'outline',
         className: [
-          'text-neutral-11',
+          'text-neutral-12',
           'bg-neutral-1',
           'border-neutral-7',
 
@@ -116,7 +116,7 @@ export const buttonStyles = cva(
         className: [
           'bg-transparent',
 
-          'text-neutral-11',
+          'text-neutral-12',
           'enabled:hover:bg-neutral-4',
           'enabled:active:bg-neutral-5',
 
