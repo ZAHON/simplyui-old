@@ -61,31 +61,6 @@ Disabled.args = {
   disabled: true,
 };
 
-export const Light = Template.bind({});
-Light.args = {
-  variant: 'light',
-};
-
-export const Outline = Template.bind({});
-Outline.args = {
-  variant: 'outline',
-};
-
-export const Subtle = Template.bind({});
-Subtle.args = {
-  variant: 'subtle',
-};
-
-export const FullWidth = Template.bind({});
-FullWidth.args = {
-  fullWidth: true,
-};
-
-export const Uppercase = Template.bind({});
-Uppercase.args = {
-  uppercase: true,
-};
-
 export const Loading = Template.bind({});
 Loading.args = {
   loading: true,
@@ -101,6 +76,36 @@ export const LoadingWithCustomLoader = Template.bind({});
 LoadingWithCustomLoader.args = {
   loading: true,
   loader: <CustomLoader />,
+};
+
+export const FilledVariant = Template.bind({});
+FilledVariant.args = {
+  variant: 'filled',
+};
+
+export const LightVariant = Template.bind({});
+LightVariant.args = {
+  variant: 'light',
+};
+
+export const OutlineVariant = Template.bind({});
+OutlineVariant.args = {
+  variant: 'outline',
+};
+
+export const SubtleVariant = Template.bind({});
+SubtleVariant.args = {
+  variant: 'subtle',
+};
+
+export const FullWidth = Template.bind({});
+FullWidth.args = {
+  fullWidth: true,
+};
+
+export const Uppercase = Template.bind({});
+Uppercase.args = {
+  uppercase: true,
 };
 
 export const WithLeftIcon = Template.bind({});
