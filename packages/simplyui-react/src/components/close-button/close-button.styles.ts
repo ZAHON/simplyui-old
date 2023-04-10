@@ -16,8 +16,7 @@ export const closeButtonStyles = cva(
     'focus-visible:outline',
     'focus-visible:outline-2',
     'focus-visible:outline-offset-2',
-    'focus-visible:outline-primary-light-9',
-    'dark:focus-visible:outline-primary-dark-9',
+    'focus-visible:outline-primary-9',
 
     'enabled:active:scale-95',
 
@@ -27,27 +26,33 @@ export const closeButtonStyles = cva(
   {
     variants: {
       size: {
-        xs: ['h-6', 'w-6', 'rounded-xs', 'text-xs'],
-        sm: ['h-8', 'w-8', 'rounded-sm', 'text-sm'],
-        md: ['h-10', 'w-10', 'rounded-md', 'text-sm'],
-        lg: ['h-12', 'w-12', 'rounded-lg', 'text-base'],
-        xl: ['h-16', 'w-16', 'rounded-xl', 'text-lg'],
+        xs: ['h-6', 'w-6', 'rounded-xs'],
+        sm: ['h-8', 'w-8', 'rounded-sm'],
+        md: ['h-10', 'w-10', 'rounded-md'],
+        lg: ['h-12', 'w-12', 'rounded-lg'],
+        xl: ['h-14', 'w-14', 'rounded-xl'],
       },
       rounded: {
         none: ['rounded-none'],
+        xs: ['rounded-xs'],
+        sm: ['rounded-sm'],
+        md: ['rounded-md'],
+        lg: ['rounded-lg'],
+        xl: ['rounded-xl'],
         full: ['rounded-full'],
       },
       variant: {
         filled: [''],
         light: [''],
-        outline: ['border-2'],
-        subtle: [''],
-        transparent: [''],
+        outline: ['bg-transparent', 'border-2'],
+        subtle: ['bg-transparent'],
+        transparent: ['bg-transparent'],
       },
       color: {
         neutral: [''],
         primary: [''],
         secondary: [''],
+        info: [''],
         success: [''],
         warning: [''],
         error: [''],
@@ -60,62 +65,58 @@ export const closeButtonStyles = cva(
         variant: 'filled',
         className: [
           'text-white',
-          'bg-neutral-light-9',
-          'enabled:hover:bg-neutral-light-10',
+          'bg-neutral-9',
 
-          'dark:bg-neutral-dark-9',
-          'dark:enabled:hover:bg-neutral-dark-10',
+          'enabled:hover:bg-neutral-10',
+
+          'focus-visible:bg-neutral-10',
         ],
       },
       {
         color: 'neutral',
         variant: 'light',
         className: [
-          'text-neutral-light-11',
-          'bg-neutral-light-4',
-          'enabled:hover:bg-neutral-light-5',
-          'enabled:active:bg-neutral-light-6',
+          'text-neutral-12',
+          'bg-neutral-4',
 
-          'dark:text-neutral-dark-11',
-          'dark:bg-neutral-dark-4',
-          'dark:enabled:hover:bg-neutral-dark-5',
-          'dark:enabled:active:bg-neutral-dark-6',
+          'enabled:hover:bg-neutral-5',
+          'enabled:active:bg-neutral-6',
+
+          'focus-visible:bg-neutral-5',
         ],
       },
       {
         color: 'neutral',
         variant: 'outline',
         className: [
-          'text-neutral-light-11',
-          'bg-neutral-light-1',
-          'border-neutral-light-7',
-          'enabled:hover:border-neutral-light-8',
+          'text-neutral-12',
+          'border-neutral-12',
 
-          'dark:text-neutral-dark-11',
-          'dark:bg-neutral-dark-1',
-          'dark:border-neutral-dark-7',
-          'dark:enabled:hover:border-neutral-dark-8',
+          'enabled:hover:text-white',
+          'enabled:hover:bg-neutral-9',
+          'enabled:hover:border-neutral-9',
+
+          'focus-visible:text-white',
+          'focus-visible:bg-neutral-9',
+          'focus-visible:border-neutral-9',
         ],
       },
       {
         color: 'neutral',
         variant: 'subtle',
         className: [
-          'bg-transparent',
+          'text-neutral-12',
 
-          'text-neutral-light-11',
-          'enabled:hover:bg-neutral-light-4',
-          'enabled:active:bg-neutral-light-5',
+          'enabled:hover:bg-neutral-4',
+          'enabled:active:bg-neutral-5',
 
-          'dark:text-neutral-dark-11',
-          'dark:enabled:hover:bg-neutral-dark-4',
-          'dark:enabled:active:bg-neutral-dark-5',
+          'focus-visible:bg-neutral-5',
         ],
       },
       {
         color: 'neutral',
         variant: 'transparent',
-        className: ['bg-transparent', 'text-neutral-light-11', 'dark:text-neutral-dark-11'],
+        className: ['text-neutral-12'],
       },
 
       // color primary
@@ -124,62 +125,56 @@ export const closeButtonStyles = cva(
         variant: 'filled',
         className: [
           'text-white',
-          'bg-primary-light-9',
-          'enabled:hover:bg-primary-light-10',
+          'bg-primary-9',
 
-          'dark:bg-primary-dark-9',
-          'dark:enabled:hover:bg-primary-dark-10',
+          'enabled:hover:bg-primary-10',
+
+          'focus-visible:bg-primary-10',
         ],
       },
       {
         color: 'primary',
         variant: 'light',
         className: [
-          'text-primary-light-11',
-          'bg-primary-light-4',
-          'enabled:hover:bg-primary-light-5',
-          'enabled:active:bg-primary-light-6',
+          'text-primary-11',
+          'bg-primary-4',
 
-          'dark:text-primary-dark-11',
-          'dark:bg-primary-dark-4',
-          'dark:enabled:hover:bg-primary-dark-5',
-          'dark:enabled:active:bg-primary-dark-6',
+          'enabled:hover:bg-primary-5',
+          'enabled:active:bg-primary-6',
+
+          'focus-visible:bg-primary-5',
         ],
       },
       {
         color: 'primary',
         variant: 'outline',
         className: [
-          'text-primary-light-11',
-          'bg-primary-light-1',
-          'border-primary-light-7',
-          'enabled:hover:border-primary-light-8',
+          'text-primary-9',
+          'border-primary-9',
 
-          'dark:text-primary-dark-11',
-          'dark:bg-primary-dark-1',
-          'dark:border-primary-dark-7',
-          'dark:enabled:hover:border-primary-dark-8',
+          'enabled:hover:text-white',
+          'enabled:hover:bg-primary-9',
+
+          'focus-visible:text-white',
+          'focus-visible:bg-primary-9',
         ],
       },
       {
         color: 'primary',
         variant: 'subtle',
         className: [
-          'bg-transparent',
+          'text-primary-11',
 
-          'text-primary-light-11',
-          'enabled:hover:bg-primary-light-4',
-          'enabled:active:bg-primary-light-5',
+          'enabled:hover:bg-primary-4',
+          'enabled:active:bg-primary-5',
 
-          'dark:text-primary-dark-11',
-          'dark:enabled:hover:bg-primary-dark-4',
-          'dark:enabled:active:bg-primary-dark-5',
+          'focus-visible:bg-primary-4',
         ],
       },
       {
         color: 'primary',
         variant: 'transparent',
-        className: ['bg-transparent', 'text-primary-light-11', 'dark:text-primary-dark-11'],
+        className: ['text-primary-11'],
       },
 
       // color secondary
@@ -188,62 +183,114 @@ export const closeButtonStyles = cva(
         variant: 'filled',
         className: [
           'text-white',
-          'bg-secondary-light-9',
-          'enabled:hover:bg-secondary-light-10',
+          'bg-secondary-9',
 
-          'dark:bg-secondary-dark-9',
-          'dark:enabled:hover:bg-secondary-dark-10',
+          'enabled:hover:bg-secondary-10',
+
+          'focus-visible:bg-secondary-10',
         ],
       },
       {
         color: 'secondary',
         variant: 'light',
         className: [
-          'text-secondary-light-11',
-          'bg-secondary-light-4',
-          'enabled:hover:bg-secondary-light-5',
-          'enabled:active:bg-secondary-light-6',
+          'text-secondary-11',
+          'bg-secondary-4',
 
-          'dark:text-secondary-dark-11',
-          'dark:bg-secondary-dark-4',
-          'dark:enabled:hover:bg-secondary-dark-5',
-          'dark:enabled:active:bg-secondary-dark-6',
+          'enabled:hover:bg-secondary-5',
+          'enabled:active:bg-secondary-6',
+
+          'focus-visible:bg-secondary-5',
         ],
       },
       {
         color: 'secondary',
         variant: 'outline',
         className: [
-          'text-secondary-light-11',
-          'bg-secondary-light-1',
-          'border-secondary-light-7',
-          'enabled:hover:border-secondary-light-8',
+          'text-secondary-9',
+          'border-secondary-9',
 
-          'dark:text-secondary-dark-11',
-          'dark:bg-secondary-dark-1',
-          'dark:border-secondary-dark-7',
-          'dark:enabled:hover:border-secondary-dark-8',
+          'enabled:hover:text-white',
+          'enabled:hover:bg-secondary-9',
+
+          'focus-visible:text-white',
+          'focus-visible:bg-secondary-9',
         ],
       },
       {
         color: 'secondary',
         variant: 'subtle',
         className: [
-          'bg-transparent',
+          'text-secondary-11',
 
-          'text-secondary-light-11',
-          'enabled:hover:bg-secondary-light-4',
-          'enabled:active:bg-secondary-light-5',
+          'enabled:hover:bg-secondary-4',
+          'enabled:active:bg-secondary-5',
 
-          'dark:text-secondary-dark-11',
-          'dark:enabled:hover:bg-secondary-dark-4',
-          'dark:enabled:active:bg-secondary-dark-5',
+          'focus-visible:bg-secondary-4',
         ],
       },
       {
         color: 'secondary',
         variant: 'transparent',
-        className: ['bg-transparent', 'text-secondary-light-11', 'dark:text-secondary-dark-11'],
+        className: ['text-secondary-11'],
+      },
+
+      // color info
+      {
+        color: 'info',
+        variant: 'filled',
+        className: [
+          'text-black',
+          'bg-info-9',
+
+          'enabled:hover:bg-info-10',
+
+          'focus-visible:bg-info-10',
+        ],
+      },
+      {
+        color: 'info',
+        variant: 'light',
+        className: [
+          'text-info-11',
+          'bg-info-4',
+
+          'enabled:hover:bg-info-5',
+          'enabled:active:bg-info-6',
+
+          'focus-visible:bg-info-5',
+        ],
+      },
+      {
+        color: 'info',
+        variant: 'outline',
+        className: [
+          'text-info-9',
+          'border-info-9',
+
+          'enabled:hover:text-black',
+          'enabled:hover:bg-info-9',
+
+          'focus-visible:text-black',
+          'focus-visible:bg-info-9',
+        ],
+      },
+      {
+        color: 'info',
+        variant: 'subtle',
+        className: [
+          'text-info-11',
+
+          'enabled:hover:bg-info-4',
+          'enabled:active:bg-info-5',
+
+          'focus-visible:bg-info-4',
+        ],
+      },
+      {
+        color: 'info',
+        variant: 'transparent',
+        className: ['text-info-11'],
       },
 
       // color success
@@ -252,62 +299,56 @@ export const closeButtonStyles = cva(
         variant: 'filled',
         className: [
           'text-white',
-          'bg-success-light-9',
-          'enabled:hover:bg-success-light-10',
+          'bg-success-9',
 
-          'dark:bg-success-dark-9',
-          'dark:enabled:hover:bg-success-dark-10',
+          'enabled:hover:bg-success-10',
+
+          'focus-visible:bg-success-10',
         ],
       },
       {
         color: 'success',
         variant: 'light',
         className: [
-          'text-success-light-11',
-          'bg-success-light-4',
-          'enabled:hover:bg-success-light-5',
-          'enabled:active:bg-success-light-6',
+          'text-success-11',
+          'bg-success-4',
 
-          'dark:text-success-dark-11',
-          'dark:bg-success-dark-4',
-          'dark:enabled:hover:bg-success-dark-5',
-          'dark:enabled:active:bg-success-dark-6',
+          'enabled:hover:bg-success-5',
+          'enabled:active:bg-success-6',
+
+          'focus-visible:bg-success-5',
         ],
       },
       {
         color: 'success',
         variant: 'outline',
         className: [
-          'text-success-light-11',
-          'bg-success-light-1',
-          'border-success-light-7',
-          'enabled:hover:border-success-light-8',
+          'text-success-9',
+          'border-success-9',
 
-          'dark:text-success-dark-11',
-          'dark:bg-success-dark-1',
-          'dark:border-success-dark-7',
-          'dark:enabled:hover:border-success-dark-8',
+          'enabled:hover:text-white',
+          'enabled:hover:bg-success-9',
+
+          'focus-visible:text-white',
+          'focus-visible:bg-success-9',
         ],
       },
       {
         color: 'success',
         variant: 'subtle',
         className: [
-          'bg-transparent',
+          'text-success-11',
 
-          'text-success-light-11',
-          'enabled:hover:bg-success-light-4',
-          'enabled:active:bg-success-light-5',
+          'enabled:hover:bg-success-4',
+          'enabled:active:bg-success-5',
 
-          'dark:text-success-dark-11',
-          'dark:enabled:hover:bg-success-dark-4',
-          'dark:enabled:active:bg-success-dark-5',
+          'focus-visible:bg-success-4',
         ],
       },
       {
         color: 'success',
         variant: 'transparent',
-        className: ['bg-transparent', 'text-success-light-11', 'dark:text-success-dark-11'],
+        className: ['text-success-11'],
       },
 
       // color warning
@@ -315,63 +356,57 @@ export const closeButtonStyles = cva(
         color: 'warning',
         variant: 'filled',
         className: [
-          'text-white',
-          'bg-warning-light-9',
-          'enabled:hover:bg-warning-light-10',
+          'text-black',
+          'bg-warning-9',
 
-          'dark:bg-warning-dark-9',
-          'dark:enabled:hover:bg-warning-dark-10',
+          'enabled:hover:bg-warning-10',
+
+          'focus-visible:bg-warning-10',
         ],
       },
       {
         color: 'warning',
         variant: 'light',
         className: [
-          'text-warning-light-11',
-          'bg-warning-light-4',
-          'enabled:hover:bg-warning-light-5',
-          'enabled:active:bg-warning-light-6',
+          'text-warning-11',
+          'bg-warning-4',
 
-          'dark:text-warning-dark-11',
-          'dark:bg-warning-dark-4',
-          'dark:enabled:hover:bg-warning-dark-5',
-          'dark:enabled:active:bg-warning-dark-6',
+          'enabled:hover:bg-warning-5',
+          'enabled:active:bg-warning-6',
+
+          'focus-visible:bg-warning-5',
         ],
       },
       {
         color: 'warning',
         variant: 'outline',
         className: [
-          'text-warning-light-11',
-          'bg-warning-light-1',
-          'border-warning-light-7',
-          'enabled:hover:border-warning-light-8',
+          'text-warning-9',
+          'border-warning-9',
 
-          'dark:text-warning-dark-11',
-          'dark:bg-warning-dark-1',
-          'dark:border-warning-dark-7',
-          'dark:enabled:hover:border-warning-dark-8',
+          'enabled:hover:text-black',
+          'enabled:hover:bg-warning-9',
+
+          'focus-visible:text-black',
+          'focus-visible:bg-warning-9',
         ],
       },
       {
         color: 'warning',
         variant: 'subtle',
         className: [
-          'bg-transparent',
+          'text-warning-11',
 
-          'text-warning-light-11',
-          'enabled:hover:bg-warning-light-4',
-          'enabled:active:bg-warning-light-5',
+          'enabled:hover:bg-warning-4',
+          'enabled:active:bg-warning-5',
 
-          'dark:text-warning-dark-11',
-          'dark:enabled:hover:bg-warning-dark-4',
-          'dark:enabled:active:bg-warning-dark-5',
+          'focus-visible:bg-warning-4',
         ],
       },
       {
         color: 'warning',
         variant: 'transparent',
-        className: ['bg-transparent', 'text-warning-light-11', 'dark:text-warning-dark-11'],
+        className: ['text-warning-11'],
       },
 
       // color error
@@ -380,62 +415,56 @@ export const closeButtonStyles = cva(
         variant: 'filled',
         className: [
           'text-white',
-          'bg-error-light-9',
-          'enabled:hover:bg-error-light-10',
+          'bg-error-9',
 
-          'dark:bg-error-dark-9',
-          'dark:enabled:hover:bg-error-dark-10',
+          'enabled:hover:bg-error-10',
+
+          'focus-visible:bg-error-10',
         ],
       },
       {
         color: 'error',
         variant: 'light',
         className: [
-          'text-error-light-11',
-          'bg-error-light-4',
-          'enabled:hover:bg-error-light-5',
-          'enabled:active:bg-error-light-6',
+          'text-error-11',
+          'bg-error-4',
 
-          'dark:text-error-dark-11',
-          'dark:bg-error-dark-4',
-          'dark:enabled:hover:bg-error-dark-5',
-          'dark:enabled:active:bg-error-dark-6',
+          'enabled:hover:bg-error-5',
+          'enabled:active:bg-error-6',
+
+          'focus-visible:bg-error-5',
         ],
       },
       {
         color: 'error',
         variant: 'outline',
         className: [
-          'text-error-light-11',
-          'bg-error-light-1',
-          'border-error-light-7',
-          'enabled:hover:border-error-light-8',
+          'text-error-9',
+          'border-error-9',
 
-          'dark:text-error-dark-11',
-          'dark:bg-error-dark-1',
-          'dark:border-error-dark-7',
-          'dark:enabled:hover:border-error-dark-8',
+          'enabled:hover:text-white',
+          'enabled:hover:bg-error-9',
+
+          'focus-visible:text-white',
+          'focus-visible:bg-error-9',
         ],
       },
       {
         color: 'error',
         variant: 'subtle',
         className: [
-          'bg-transparent',
+          'text-error-11',
 
-          'text-error-light-11',
-          'enabled:hover:bg-error-light-4',
-          'enabled:active:bg-error-light-5',
+          'enabled:hover:bg-error-4',
+          'enabled:active:bg-error-5',
 
-          'dark:text-error-dark-11',
-          'dark:enabled:hover:bg-error-dark-4',
-          'dark:enabled:active:bg-error-dark-5',
+          'focus-visible:bg-error-4',
         ],
       },
       {
         color: 'error',
         variant: 'transparent',
-        className: ['bg-transparent', 'text-error-light-11', 'dark:text-error-dark-11'],
+        className: ['text-error-11'],
       },
     ],
   }

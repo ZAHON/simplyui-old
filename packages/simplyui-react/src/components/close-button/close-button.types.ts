@@ -1,19 +1,18 @@
-import type { ButtonHTMLAttributes, ReactNode } from 'react';
+import type { ButtonHTMLAttributes, CSSProperties } from 'react';
 import type { Size, Rounded, Color } from '../../types';
 
-export interface CloseButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
+type HTMLAttributesToOmit = 'children' | 'type';
+
+export interface CloseButtonProps
+  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, HTMLAttributesToOmit> {
   /**
-   * A label that describes the close button content.
+   * The type of the icon used inside close button.
+   * @default "x-mark"
    */
-  'aria-label': string;
+  iconType?: 'x-mark' | 'x-circle';
 
   /**
-   * Replace default icon.
-   */
-  children?: ReactNode;
-
-  /**
-   * The width and weight of the X icon.
+   * The size of the icon used inside close button. This property override icon size determined by `size` property.
    */
   iconSize?: number | string;
 
@@ -31,24 +30,17 @@ export interface CloseButtonProps extends ButtonHTMLAttributes<HTMLButtonElement
 
   /**
    * The color of the close button.
-   * @default "primary"
+   * @default "neutral"
    */
   color?: Color;
 
   /**
-   * Sets the border radius of the close button, overwrites the value specified by size prop.
-   * @default undefined
+   * The border radius value of the close button. This property override border radius determined by `size` property.
    */
   rounded?: Rounded;
 
   /**
-   * The type of the close button.
-   * @default "button"
-   */
-  type?: 'submit' | 'reset' | 'button';
-
-  /**
-   * If true, the close button will be disabled.
+   * If `true`, the close button will be disabled.
    * @default false
    */
   disabled?: boolean;
@@ -57,4 +49,9 @@ export interface CloseButtonProps extends ButtonHTMLAttributes<HTMLButtonElement
    * Override close button default styles.
    */
   className?: string;
+
+  /**
+   * Override close button default inline style.
+   */
+  style?: CSSProperties;
 }
