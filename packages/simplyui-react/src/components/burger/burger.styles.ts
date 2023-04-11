@@ -1,8 +1,7 @@
 import { cva } from 'class-variance-authority';
 
-export const burgerRootStyles = cva(
+export const burgerStyles = cva(
   [
-    'p-1.5',
     'inline-flex',
     'flex-col',
     'justify-center',
@@ -10,10 +9,15 @@ export const burgerRootStyles = cva(
     'select-none',
     'overflow-hidden',
 
+    'motion-safe:transition',
+    'motion-safe:duration-150',
+
     'focus-visible:outline',
     'focus-visible:outline-2',
     'focus-visible:outline-offset-2',
     'focus-visible:outline-primary-9',
+
+    'enabled:active:scale-95',
 
     'disabled:opacity-40',
     'disabled:cursor-not-allowed',
@@ -25,7 +29,7 @@ export const burgerRootStyles = cva(
         sm: ['h-8', 'w-8', 'rounded-sm'],
         md: ['h-10', 'w-10', 'rounded-md'],
         lg: ['h-12', 'w-12', 'rounded-lg'],
-        xl: ['h-16', 'w-16', 'rounded-xl'],
+        xl: ['h-14', 'w-14', 'rounded-xl'],
       },
       rounded: {
         none: ['rounded-none'],
@@ -34,111 +38,93 @@ export const burgerRootStyles = cva(
         md: ['rounded-md'],
         lg: ['rounded-lg'],
         xl: ['rounded-xl'],
-        '2xl': ['rounded-2xl'],
-        '3xl': ['rounded-3xl'],
-        squared: ['rounded-squared'],
         full: ['rounded-full'],
       },
-    },
-  }
-);
-
-export const burgerIconStyles = cva(
-  [
-    'relative',
-    'w-full',
-    'motion-safe:transition-colors',
-    'motion-safe:duration-[var(--burger-transition-duration)]',
-    'data-[opened]:bg-transparent',
-
-    'before:content-[""]',
-    'before:absolute',
-    'before:left-0',
-    'before:w-full',
-    'before:motion-safe:transition-transform',
-    'before:motion-safe:duration-[var(--burger-transition-duration)]',
-    'data-[opened]:before:rotate-45',
-
-    'after:content-[""]',
-    'after:absolute',
-    'after:left-0',
-    'after:w-full',
-    'after:motion-safe:transition-transform',
-    'after:motion-safe:duration-[var(--burger-transition-duration)]',
-    'data-[opened]:after:-rotate-45',
-  ],
-  {
-    variants: {
-      size: {
-        xs: [
-          'h-px',
-
-          'before:-top-1',
-          'before:h-px',
-          'data-[opened]:before:translate-y-1',
-
-          'after:top-1',
-          'after:h-px',
-          'data-[opened]:after:-translate-y-1',
-        ],
-        sm: [
-          'h-px',
-
-          'before:-top-1.5',
-          'before:h-px',
-          'data-[opened]:before:translate-y-1.5',
-
-          'after:top-1.5',
-          'after:h-px',
-          'data-[opened]:after:-translate-y-1.5',
-        ],
-        md: [
-          'h-0.5',
-
-          'before:-top-2',
-          'before:h-0.5',
-          'data-[opened]:before:translate-y-2',
-
-          'after:top-2',
-          'after:h-0.5',
-          'data-[opened]:after:-translate-y-2',
-        ],
-        lg: [
-          'h-[3px]',
-
-          'before:-top-2.5',
-          'before:h-[3px]',
-          'data-[opened]:before:translate-y-2.5',
-
-          'after:top-2.5',
-          'after:h-[3px]',
-          'data-[opened]:after:-translate-y-2.5',
-        ],
-        xl: [
-          'h-1',
-
-          'before:-top-3',
-          'before:h-1',
-          'data-[opened]:before:translate-y-3',
-
-          'after:top-3',
-          'after:h-1',
-          'data-[opened]:after:-translate-y-3',
-        ],
+      variant: {
+        subtle: ['bg-transparent'],
+        transparent: ['bg-transparent'],
       },
       color: {
-        text: ['bg-layout-text', 'before:bg-layout-text', 'after:bg-layout-text'],
-        neutral: ['bg-neutral-11', 'before:bg-neutral-11', 'after:bg-neutral-11'],
-        primary: ['bg-primary-11', 'before:bg-primary-11', 'after:bg-primary-11'],
-        secondary: ['bg-secondary-11', 'before:bg-secondary-11', 'after:bg-secondary-11'],
-        info: ['bg-info-11', 'before:bg-info-11', 'after:bg-info-11'],
-        success: ['bg-success-11', 'before:bg-success-11', 'after:bg-success-11'],
-        warning: ['bg-warning-11', 'before:bg-warning-11', 'after:bg-warning-11'],
-        error: ['bg-error-11', 'before:bg-error-11', 'after:bg-error-11'],
-      },
-      roundedIconBars: {
-        true: ['rounded-full', 'before:rounded-full', 'after:rounded-full'],
+        neutral: [''],
+        primary: [''],
+        secondary: [''],
+        info: [''],
+        success: [''],
+        warning: [''],
+        error: [''],
       },
     },
+    compoundVariants: [
+      {
+        color: 'neutral',
+        variant: 'subtle',
+        className: [
+          'enabled:hover:bg-neutral-4',
+          'enabled:active:bg-neutral-5',
+
+          'focus-visible:bg-neutral-5',
+        ],
+      },
+      {
+        color: 'primary',
+        variant: 'subtle',
+        className: [
+          'enabled:hover:bg-primary-4',
+          'enabled:active:bg-primary-5',
+
+          'focus-visible:bg-primary-5',
+        ],
+      },
+      {
+        color: 'secondary',
+        variant: 'subtle',
+        className: [
+          'enabled:hover:bg-secondary-4',
+          'enabled:active:bg-secondary-5',
+
+          'focus-visible:bg-secondary-5',
+        ],
+      },
+      {
+        color: 'info',
+        variant: 'subtle',
+        className: [
+          'enabled:hover:bg-info-4',
+          'enabled:active:bg-info-5',
+
+          'focus-visible:bg-info-5',
+        ],
+      },
+      {
+        color: 'success',
+        variant: 'subtle',
+        className: [
+          'enabled:hover:bg-success-4',
+          'enabled:active:bg-success-5',
+
+          'focus-visible:bg-success-5',
+        ],
+      },
+      {
+        color: 'warning',
+        variant: 'subtle',
+        className: [
+          'enabled:hover:bg-warning-4',
+          'enabled:active:bg-warning-5',
+
+          'focus-visible:bg-warning-5',
+        ],
+      },
+      {
+        color: 'error',
+        variant: 'subtle',
+        className: [
+          'enabled:hover:bg-error-4',
+          'enabled:active:bg-error-5',
+
+          'focus-visible:bg-error-5',
+        ],
+      },
+    ],
   }
 );

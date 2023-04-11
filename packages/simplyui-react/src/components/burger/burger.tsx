@@ -1,34 +1,47 @@
-import type { BurgerProps, BurgerRootStyle } from './burger.types';
+import type { BurgerProps } from './burger.types';
+import type { BurgerIconProps } from './burger-icon/burger-icon.types';
 import { forwardRef } from 'react';
 import { twMerge } from 'tailwind-merge';
 import { applayComponentDefaultProps } from '../../utils';
-import { burgerRootStyles, burgerIconStyles } from './burger.styles';
+import { BurgerIcon } from './burger-icon/burger-icon';
+import { burgerStyles } from './burger.styles';
 
 const defaultProps: Partial<BurgerProps> = {
   size: 'md',
-  color: 'text',
+  color: 'neutral',
+  variant: 'subtle',
+  bars: 3,
   transitionDuration: 300,
-  roundedIconBars: true,
+  roundedBars: true,
 };
 
 export const Burger = forwardRef<HTMLButtonElement, BurgerProps>(function Burger(props, ref) {
   const {
     opened,
-    roundedIconBars,
+    roundedBars,
+    bars,
     size,
+    iconSize,
     color,
+    variant,
     rounded,
     transitionDuration,
-    rootClassName,
-    rootStyle,
+    className,
     iconClassName,
     iconStyle,
     ...others
   } = applayComponentDefaultProps(defaultProps, props);
 
-  const burgerRootStyle: BurgerRootStyle = {
-    '--burger-transition-duration': `${transitionDuration}ms`,
-    ...rootStyle,
+  const burgerIconProps: BurgerIconProps = {
+    opened,
+    roundedBars,
+    bars,
+    size,
+    iconSize,
+    color,
+    transitionDuration,
+    className: iconClassName,
+    style: iconStyle,
   };
 
   return (
@@ -36,14 +49,9 @@ export const Burger = forwardRef<HTMLButtonElement, BurgerProps>(function Burger
       {...others}
       ref={ref}
       type="button"
-      style={burgerRootStyle}
-      className={twMerge(burgerRootStyles({ size, rounded }), rootClassName)}
+      className={twMerge(burgerStyles({ size, rounded, variant, color }), className)}
     >
-      <div
-        data-opened={opened ? '' : undefined}
-        style={iconStyle}
-        className={twMerge(burgerIconStyles({ size, color, roundedIconBars }), iconClassName)}
-      />
+      <BurgerIcon {...burgerIconProps} />
     </button>
   );
 });

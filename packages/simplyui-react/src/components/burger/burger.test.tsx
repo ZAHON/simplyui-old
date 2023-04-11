@@ -1,87 +1,87 @@
+import { createRef } from 'react';
 import type { BurgerProps } from './burger.types';
 import { render, screen } from '@testing-library/react';
 import { Burger } from './burger';
 
-const dataTestId = 'burger-root';
-
-interface BurgerComponentProps extends Omit<BurgerProps, 'opened'> {
-  opened?: boolean;
-}
-
-function BurgerComponent(props: BurgerComponentProps) {
-  const { opened, ...others } = props;
-
-  return (
-    <Burger
-      {...others}
-      opened={opened ? opened : false}
-      aria-label="Burger"
-      data-testid={dataTestId}
-    />
-  );
-}
-
-function getRootElement() {
-  return screen.getByTestId(dataTestId);
-}
-
-function getIconElement() {
-  return getRootElement().children[0];
-}
+const defaultProps: BurgerProps = {
+  opened: false,
+};
 
 describe('Burger', () => {
   describe('Root element', () => {
-    it('should be disabled when property disabled provided', () => {
-      render(<BurgerComponent disabled={true} />);
-      expect(getRootElement()).toBeDisabled();
+    it('should support ref', () => {
+      const ref = createRef<HTMLButtonElement>();
+
+      render(<Burger {...defaultProps} ref={ref} />);
+      expect(ref.current).toBeInstanceOf(HTMLButtonElement);
     });
 
-    it('should have appropriate css variable with value when property transitionDuration provided', () => {
-      const transitionDuration = 500;
-
-      render(<BurgerComponent transitionDuration={transitionDuration} />);
-      expect(getRootElement()).toHaveStyle({
-        '--burger-transition-duration': `${transitionDuration}ms`,
-      });
+    it('should be button type', () => {
+      render(<Burger {...defaultProps} />);
+      expect(screen.getByRole('button')).toHaveAttribute('type', 'button');
     });
 
-    it('should have class name handed over when property rootClassName provided', () => {
-      const rootClassName = 'test';
-
-      render(<BurgerComponent rootClassName={rootClassName} />);
-      expect(getRootElement()).toHaveClass(rootClassName);
+    it('should be not in disabled state when disabled property not provided', () => {
+      render(<Burger {...defaultProps} disabled={false} />);
+      expect(screen.getByRole('button')).not.toBeDisabled;
     });
 
-    it('should have style handed over when property rootStyle provided', () => {
-      const rootStyle = { backgroundColor: 'red' };
+    it('should be in disabled state when disabled property provided', () => {
+      render(<Burger {...defaultProps} disabled={true} />);
+      expect(screen.getByRole('button')).not.toBeDisabled;
+    });
 
-      render(<BurgerComponent rootStyle={rootStyle} />);
-      expect(getRootElement()).toHaveStyle(rootStyle);
+    it('should have class name handed over by className property', () => {
+      const className = 'test';
+
+      render(<Burger {...defaultProps} className={className} />);
+      expect(screen.getByRole('button')).toHaveClass(className);
+    });
+
+    it('should have style handed over by style property', () => {
+      const style = { color: 'red' };
+
+      render(<Burger {...defaultProps} style={style} />);
+      expect(screen.getByRole('button')).toHaveStyle(style);
     });
   });
 
   describe('Icon element', () => {
-    it('should have not attribute data-opened when property opened not provided', () => {
-      render(<BurgerComponent opened={false} />);
+    function getIconElement() {
+      // eslint-disable-next-line testing-library/no-node-access
+      return screen.getByRole('button').querySelector('div');
+    }
+
+    it('should have not data-opened attribute when opened property not provided', () => {
+      render(<Burger {...defaultProps} opened={false} />);
       expect(getIconElement()).not.toHaveAttribute('data-opened');
     });
 
-    it('should have attribute data-opened when property opened provided', () => {
-      render(<BurgerComponent opened={true} />);
+    it('should have data-opened attribute when opened property provided', () => {
+      render(<Burger {...defaultProps} opened={true} />);
       expect(getIconElement()).toHaveAttribute('data-opened');
     });
 
-    it('should have class name handed over when property iconClassName provided', () => {
+    it('should have appropriate css variable with value when transitionDuration property provided', () => {
+      const transitionDuration = 500;
+
+      render(<Burger {...defaultProps} transitionDuration={transitionDuration} />);
+      expect(getIconElement()).toHaveStyle({
+        '--burger-icon-transition-duration': `${transitionDuration}ms`,
+      });
+    });
+
+    it('should have class name handed over by iconClassName property', () => {
       const iconClassName = 'test';
 
-      render(<BurgerComponent iconClassName={iconClassName} />);
+      render(<Burger {...defaultProps} iconClassName={iconClassName} />);
       expect(getIconElement()).toHaveClass(iconClassName);
     });
 
-    it('should have style handed over when property iconStyle provided', () => {
-      const iconStyle = { backgroundColor: 'red' };
+    it('should have style handed over by iconStyle property', () => {
+      const iconStyle = { color: 'red' };
 
-      render(<BurgerComponent iconStyle={iconStyle} />);
+      render(<Burger {...defaultProps} iconStyle={iconStyle} />);
       expect(getIconElement()).toHaveStyle(iconStyle);
     });
   });

@@ -1,7 +1,7 @@
 import type { ButtonHTMLAttributes, CSSProperties } from 'react';
 import type { Size, Rounded, Color } from '../../types';
 
-type HTMLAttributesToOmit = 'className' | 'style' | 'type' | 'children';
+type HTMLAttributesToOmit = 'type' | 'children';
 
 export interface BurgerProps
   extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, HTMLAttributesToOmit> {
@@ -17,10 +17,17 @@ export interface BurgerProps
   disabled?: boolean;
 
   /**
+   *
+   * A number of bars in burger icon.
+   * @default 3
+   */
+  bars?: 2 | 3;
+
+  /**
    * If `true`, the burger icon bars will be rounded.
    * @default true
    */
-  roundedIconBars?: boolean;
+  roundedBars?: boolean;
 
   /**
    * The size of the burger.
@@ -29,44 +36,51 @@ export interface BurgerProps
   size?: Size;
 
   /**
-   * The color of the burger icon bars.
-   * @default "text"
+   * The size of the burger icon. This property override icon size determined by `size` property.
    */
-  color?: 'text' | Color;
+  iconSize?: Size;
 
   /**
-   * The border radius value of the burger root element. This property override border radius value provided by `size` proporty.
+   * The color of the burger.
+   * @default "neutral"
+   */
+  color?: Color;
+
+  /**
+   * The variant of the burger.
+   * @default "subtle"
+   */
+  variant?: 'subtle' | 'transparent';
+
+  /**
+   * The border radius value of the burger. This property override border radius determined by `size` property.
    * @default undefined
    */
   rounded?: Rounded;
 
   /**
-   * The transition duration in ms.
+   * The transition duration of burger icon when `opened` property change in ms.
    * @default 300
    */
   transitionDuration?: number;
 
   /**
-   * Override burger root element default styles.
+   * Override burger default styles.
    */
-  rootClassName?: string;
+  className?: string;
 
   /**
-   * Override burger root element default inline style.
+   * Override burger default inline style.
    */
-  rootStyle?: CSSProperties;
+  style?: CSSProperties;
 
   /**
-   * Override burger icon element default styles.
+   * Override burger icon default styles.
    */
   iconClassName?: string;
 
   /**
-   * Override burger icon element default inline style.
+   * Override burger icon default inline style.
    */
   iconStyle?: CSSProperties;
-}
-
-export interface BurgerRootStyle extends CSSProperties {
-  '--burger-transition-duration': string;
 }
