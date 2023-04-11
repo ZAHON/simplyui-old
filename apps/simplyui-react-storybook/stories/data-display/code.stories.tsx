@@ -9,14 +9,16 @@ export default {
   args: {
     children: 'npm install @simplyui/react',
     size: 'md',
-    color: 'text',
+    color: 'neutral',
     backgroundColor: 'neutral',
+    accent: undefined,
     rounded: 'xs',
   },
   argTypes: {
     size: { control: 'select' },
     color: { control: 'select' },
     backgroundColor: { control: 'select' },
+    accent: { control: 'select' },
     rounded: { control: 'select' },
     className: { control: false },
     style: { control: false },
@@ -33,3 +35,23 @@ export default {
 const Template: ComponentStory<typeof Code> = (args) => <Code {...args} />;
 
 export const Default = Template.bind({});
+
+export const TopAccent = Template.bind({});
+TopAccent.args = {
+  accent: 'top',
+};
+
+export const RightAccent = Template.bind({});
+RightAccent.args = {
+  accent: 'right',
+};
+
+export const BottomAccent = Template.bind({});
+BottomAccent.args = {
+  accent: 'bottom',
+};
+
+export const LeftAccent = Template.bind({});
+LeftAccent.args = {
+  accent: 'left',
+};
