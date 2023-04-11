@@ -8,20 +8,27 @@ export default {
   component: Burger,
   args: {
     opened: false,
-    'aria-label': 'Burger',
     disabled: false,
-    roundedIconBars: true,
+    roundedBars: true,
+    bars: 3,
     size: 'md',
-    color: 'text',
+    iconSize: undefined,
+    color: 'neutral',
+    variant: 'subtle',
     rounded: undefined,
     transitionDuration: 300,
+    'aria-label': 'Burger',
   },
   argTypes: {
     size: { control: 'select' },
+    iconSize: { control: 'select' },
     color: { control: 'select' },
+    variant: { control: 'select' },
     rounded: { control: 'select' },
-    rootClassName: { control: false },
-    rootStyle: { control: false },
+    bars: { control: 'select' },
+    'aria-label': { control: false },
+    className: { control: false },
+    style: { control: false },
     iconClassName: { control: false },
     iconStyle: { control: false },
   },
@@ -30,3 +37,33 @@ export default {
 const Template: ComponentStory<typeof Burger> = (args) => <Burger {...args} />;
 
 export const Default = Template.bind({});
+
+export const Opened = Template.bind({});
+Opened.args = {
+  opened: true,
+};
+
+export const Disabled = Template.bind({});
+Disabled.args = {
+  disabled: true,
+};
+
+export const IconWith2Bars = Template.bind({});
+IconWith2Bars.args = {
+  bars: 2,
+};
+
+export const IconWith3Bars = Template.bind({});
+IconWith3Bars.args = {
+  bars: 3,
+};
+
+export const SubtleVariant = Template.bind({});
+SubtleVariant.args = {
+  variant: 'subtle',
+};
+
+export const TransparentVariant = Template.bind({});
+TransparentVariant.args = {
+  variant: 'transparent',
+};
