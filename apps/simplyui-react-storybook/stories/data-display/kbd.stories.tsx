@@ -8,7 +8,7 @@ export default {
   component: Kbd,
   args: {
     children: '⌘',
-    size: 'sm',
+    size: 'md',
     rounded: 'xs',
   },
   argTypes: {
@@ -17,6 +17,13 @@ export default {
     className: { control: false },
     style: { control: false },
   },
+  decorators: [
+    (Story) => (
+      <div className="text-2xl">
+        <Story />
+      </div>
+    ),
+  ],
 } as ComponentMeta<typeof Kbd>;
 
 const Template: ComponentStory<typeof Kbd> = (args) => <Kbd {...args} />;
