@@ -15,6 +15,7 @@ export const kbdStyles = cva(
   {
     variants: {
       size: {
+        inherit: [''],
         xs: ['text-xs'],
         sm: ['text-sm'],
         md: ['text-base'],
@@ -28,7 +29,6 @@ export const kbdStyles = cva(
         md: ['rounded-md'],
         lg: ['rounded-lg'],
         xl: ['rounded-xl'],
-        squared: ['rounded-squared'],
         full: ['rounded-full'],
       },
     },

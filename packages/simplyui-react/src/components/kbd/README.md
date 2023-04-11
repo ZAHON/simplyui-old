@@ -24,19 +24,20 @@ function Demo() {
 
 ## Sizes
 
-Use the `size` property to change the size of the Kbd. You can set the value to `xs`, `sm`, `md`, `lg` or `xl`. The default value is `sm`.
+Use the `size` property to change font size of the content inside Kbd. You can set the value to `xs`, `sm`, `md`, `lg`, `xl` or `inherit`. The default value is `md`.
 
 ```jsx
 import { Kbd } from '@simplyui/react';
 
-export function Demo() {
+function Demo() {
   return (
-    <div className="flex items-end gap-x-4">
+    <div className="flex items-center gap-x-4">
       <Kbd size="xs">⌘</Kbd>
       <Kbd size="sm">⌘</Kbd>
       <Kbd size="md">⌘</Kbd>
       <Kbd size="lg">⌘</Kbd>
       <Kbd size="xl">⌘</Kbd>
+      <Kbd size="inherit">⌘</Kbd>
     </div>
   );
 }
@@ -44,28 +45,27 @@ export function Demo() {
 
 ## Rounded
 
-Use the `rounded` property to change border radius of the Kbd. You can set the value to `none`, `xs`, `sm`, `md`, `lg`, `xl`, `squared` or `full`. The default value is `xs`.
+Use the `rounded` property to change border radius of the Kbd. You can set the value to `none`, `xs`, `sm`, `md`, `lg`, `xl` or `full`. The default value is `xs`.
 
 ```jsx
 import { Kbd } from '@simplyui/react';
 
 function Demo() {
   return (
-    <div className="flex items-end gap-x-4">
+    <div className="flex gap-x-4">
       <Kbd rounded="none">⌘</Kbd>
       <Kbd rounded="xs">⌘</Kbd>
       <Kbd rounded="sm">⌘</Kbd>
       <Kbd rounded="md">⌘</Kbd>
       <Kbd rounded="lg">⌘</Kbd>
       <Kbd rounded="xl">⌘</Kbd>
-      <Kbd rounded="squared">⌘</Kbd>
       <Kbd rounded="full">⌘</Kbd>
     </div>
   );
 }
 ```
 
-## Get kbd ref
+## Get element ref
 
 ```tsx
 import { useRef } from 'react';

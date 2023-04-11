@@ -1,27 +1,28 @@
-import type { KbdProps } from './kbd.types';
+import { createRef } from 'react';
 import { render, screen } from '@testing-library/react';
 import { Kbd } from './kbd';
 
-function KbdComponent(props: Omit<KbdProps, 'children'>) {
-  return <Kbd {...props}>Enter</Kbd>;
-}
-
-function getKbdElement() {
-  return screen.getByText('Enter');
-}
+const kbdContent = 'Enter';
 
 describe('Kbd', () => {
-  it('should have class name handed over when property className provided', () => {
-    const className = 'test';
+  it('should support ref', () => {
+    const ref = createRef<HTMLElement>();
 
-    render(<KbdComponent className={className} />);
-    expect(getKbdElement()).toHaveClass(className);
+    render(<Kbd ref={ref}>{kbdContent}</Kbd>);
+    expect(ref.current).toBeInstanceOf(HTMLElement);
   });
 
-  it('should have style handed over when property style provided', () => {
-    const style = { backgroundColor: 'red' };
+  it('should have class name handed over by className property', () => {
+    const className = 'test';
 
-    render(<KbdComponent style={style} />);
-    expect(getKbdElement()).toHaveStyle(style);
+    render(<Kbd className={className}>{kbdContent}</Kbd>);
+    expect(screen.getByText(kbdContent)).toHaveClass(className);
+  });
+
+  it('should have style handed over by style property', () => {
+    const style = { color: 'red' };
+
+    render(<Kbd style={style}>{kbdContent}</Kbd>);
+    expect(screen.getByText(kbdContent)).toHaveStyle(style);
   });
 });

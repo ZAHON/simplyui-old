@@ -8,16 +8,16 @@ export interface KbdProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
 
   /**
-   * The size of the kbd.
-   * @default "sm"
+   * The font size of the kbd content.
+   * @default "md"
    */
-  size?: Size;
+  size?: 'inherit' | Size;
 
   /**
    * The value of the kbd border radius.
-   * @default xs
+   * @default "xs"
    */
-  rounded?: Exclude<Rounded, '2xl' | '3xl'>;
+  rounded?: Rounded;
 
   /**
    * Override kbd default styles.

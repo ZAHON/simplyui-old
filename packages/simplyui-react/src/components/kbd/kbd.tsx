@@ -5,7 +5,7 @@ import { applayComponentDefaultProps } from '../../utils';
 import { kbdStyles } from './kbd.styles';
 
 const defaultProps: Partial<KbdProps> = {
-  size: 'sm',
+  size: 'md',
   rounded: 'xs',
 };
 
