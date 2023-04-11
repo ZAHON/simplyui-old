@@ -1,29 +1,28 @@
-import type { CodeProps } from './code.types';
+import { createRef } from 'react';
 import { render, screen } from '@testing-library/react';
 import { Code } from './code';
 
 const codeContent = 'npm install @simplyui/react';
 
-function CodeComponent(props: Omit<CodeProps, 'children'>) {
-  return <Code {...props}>{codeContent}</Code>;
-}
-
-function getCodeElement() {
-  return screen.getByText(codeContent);
-}
-
 describe('Code', () => {
-  it('should have class name handed over when property className provided', () => {
-    const className = 'test';
+  it('should support ref', () => {
+    const ref = createRef<HTMLElement>();
 
-    render(<CodeComponent className={className} />);
-    expect(getCodeElement()).toHaveClass(className);
+    render(<Code ref={ref}>{codeContent}</Code>);
+    expect(ref.current).toBeInstanceOf(HTMLElement);
   });
 
-  it('should have style handed over when property style provided', () => {
-    const style = { backgroundColor: 'red' };
+  it('should have class name handed over by className property', () => {
+    const className = 'test';
 
-    render(<CodeComponent style={style} />);
-    expect(getCodeElement()).toHaveStyle(style);
+    render(<Code className={className}>{codeContent}</Code>);
+    expect(screen.getByText(codeContent)).toHaveClass(className);
+  });
+
+  it('should have style handed over by style property', () => {
+    const style = { color: 'red' };
+
+    render(<Code style={style}>{codeContent}</Code>);
+    expect(screen.getByText(codeContent)).toHaveStyle(style);
   });
 });

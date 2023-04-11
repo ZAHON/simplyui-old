@@ -8,16 +8,21 @@ export interface CodeProps extends HTMLAttributes<HTMLDivElement> {
   children: ReactNode;
 
   /**
+   * If added, the code will have decorative border. Color of this decorative border border is determined by `backgroundColor` property.
+   */
+  accent?: 'top' | 'right' | 'bottom' | 'left';
+
+  /**
    * The font size of the text inside code.
-   * @default "sm"
+   * @default "md"
    */
   size?: 'inherit' | Size;
 
   /**
    * The color of the text inside code.
-   * @default "text"
+   * @default "neutral"
    */
-  color?: 'text' | Color;
+  color?: Color;
 
   /**
    * The background color of the code.
@@ -29,7 +34,7 @@ export interface CodeProps extends HTMLAttributes<HTMLDivElement> {
    * The border radius value of the code.
    * @default "xs"
    */
-  rounded?: Exclude<Rounded, '2xl' | '3xl' | 'squared'>;
+  rounded?: Rounded;
 
   /**
    * Override code default styles.

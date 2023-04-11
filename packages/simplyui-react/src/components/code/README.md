@@ -41,7 +41,7 @@ function Demo() {
 
 ## Colors
 
-Use the `color` property to change color of the text inside Code. You can set the value to `text`, `neutral`, `primary`, `secondary`, `info`, `success`, `warning` or `error`. The default value is `text`.
+Use the `color` property to change color of the text inside Code. You can set the value to `neutral`, `primary`, `secondary`, `info`, `success`, `warning` or `error`. The default value is `neutral`.
 
 ```jsx
 import { Code } from '@simplyui/react';
@@ -49,7 +49,6 @@ import { Code } from '@simplyui/react';
 function Demo() {
   return (
     <div className="flex flex-col items-start gap-y-4">
-      <Code color="text">npm install @simplyui/react</Code>
       <Code color="neutral">npm install @simplyui/react</Code>
       <Code color="primary">npm install @simplyui/react</Code>
       <Code color="secondary">npm install @simplyui/react</Code>
@@ -98,6 +97,33 @@ function Demo() {
 }
 ```
 
+## Accent
+
+Use the `accent` property to add decorative border. You can set the value to `top`, `right`, `bottom` or `left`. Color of this decorative border border is determined by `backgroundColor` property.
+
+```jsx
+import { Code } from '@simplyui/react';
+
+function Demo() {
+  return (
+    <div className="flex flex-col items-start gap-y-4">
+      <Code accent="top" backgroundColor="primary" color="primary" rounded="none">
+        npm install @simplyui/react
+      </Code>
+      <Code accent="right" backgroundColor="primary" color="primary" rounded="none">
+        npm install @simplyui/react
+      </Code>
+      <Code accent="bottom" backgroundColor="primary" color="primary" rounded="none">
+        npm install @simplyui/react
+      </Code>
+      <Code accent="left" backgroundColor="primary" color="primary" rounded="none">
+        npm install @simplyui/react
+      </Code>
+    </div>
+  );
+}
+```
+
 ## Border radius
 
 Use the `rounded` property to change border radius value of the Code. You can set the value to `none`, `xs`, `sm`, `md`, `lg`, `xl` or `full`. The default value is `xs`.
@@ -108,33 +134,19 @@ import { Code } from '@simplyui/react';
 function Demo() {
   return (
     <div className="flex flex-col items-start gap-y-4">
-      <Code rounded="none" size="xl">
-        npm install @simplyui/react
-      </Code>
-      <Code rounded="xs" size="xl">
-        npm install @simplyui/react
-      </Code>
-      <Code rounded="sm" size="xl">
-        npm install @simplyui/react
-      </Code>
-      <Code rounded="md" size="xl">
-        npm install @simplyui/react
-      </Code>
-      <Code rounded="lg" size="xl">
-        npm install @simplyui/react
-      </Code>
-      <Code rounded="xl" size="xl">
-        npm install @simplyui/react
-      </Code>
-      <Code rounded="full" size="xl">
-        npm install @simplyui/react
-      </Code>
+      <Code rounded="none">npm install @simplyui/react</Code>
+      <Code rounded="xs">npm install @simplyui/react</Code>
+      <Code rounded="sm">npm install @simplyui/react</Code>
+      <Code rounded="md">npm install @simplyui/react</Code>
+      <Code rounded="lg">npm install @simplyui/react</Code>
+      <Code rounded="xl">npm install @simplyui/react</Code>
+      <Code rounded="full">npm install @simplyui/react</Code>
     </div>
   );
 }
 ```
 
-## Get code ref
+## Get element ref
 
 ```tsx
 import { useRef } from 'react';

@@ -6,20 +6,20 @@ import { codeStyles } from './code.styles';
 
 const defaultProps: Partial<CodeProps> = {
   size: 'md',
-  color: 'text',
+  color: 'neutral',
   backgroundColor: 'neutral',
   rounded: 'xs',
 };
 
 export const Code = forwardRef<HTMLElement, CodeProps>(function Code(props, ref) {
-  const { size, color, backgroundColor, rounded, className, children, ...others } =
+  const { size, color, backgroundColor, accent, rounded, className, children, ...others } =
     applayComponentDefaultProps(defaultProps, props);
 
   return (
     <code
       {...others}
       ref={ref}
-      className={twMerge(codeStyles({ size, color, backgroundColor, rounded }), className)}
+      className={twMerge(codeStyles({ size, color, backgroundColor, accent, rounded }), className)}
     >
       {children}
     </code>
