@@ -17,6 +17,7 @@ export default {
   argTypes: {
     className: { control: false },
     style: { control: false },
+    children: { control: false },
   },
 } as ComponentMeta<typeof Skeleton>;
 
