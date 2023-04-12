@@ -80,7 +80,7 @@ function Demo() {
 }
 ```
 
-## Get skeleton ref
+## Get element ref
 
 ```tsx
 import { useRef } from 'react';

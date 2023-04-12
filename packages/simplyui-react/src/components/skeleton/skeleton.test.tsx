@@ -1,66 +1,65 @@
-import type { SkeletonProps } from './skeleton.types';
+import { createRef } from 'react';
 import { render, screen } from '@testing-library/react';
 import { Skeleton } from './skeleton';
 
 const dataTestId = 'skeleton';
 
-function SkeletonComponent(props: SkeletonProps) {
-  return <Skeleton data-testid={dataTestId} {...props} />;
-}
-
-function getSkeletonElement() {
-  return screen.getByTestId(dataTestId);
-}
-
 describe('Skeleton', () => {
-  it('should have class name handed over when property className provided', () => {
+  it('should support ref', () => {
+    const ref = createRef<HTMLDivElement>();
+
+    render(<Skeleton data-testid={dataTestId} ref={ref} />);
+    expect(ref.current).toBeInstanceOf(HTMLDivElement);
+  });
+
+  it('should have class name handed over by className property', () => {
     const className = 'test';
 
-    render(<SkeletonComponent className={className} />);
-    expect(getSkeletonElement()).toHaveClass(className);
+    render(<Skeleton data-testid={dataTestId} className={className} />);
+    expect(screen.getByTestId(dataTestId)).toHaveClass(className);
   });
 
-  it('should have style handed over when property style provided', () => {
-    const style = { backgroundColor: 'red' };
+  it('should have style handed over by style property', () => {
+    const style = { color: 'red' };
 
-    render(<SkeletonComponent style={style} />);
-    expect(getSkeletonElement()).toHaveStyle(style);
+    render(<Skeleton data-testid={dataTestId} style={style} />);
+    expect(screen.getByTestId(dataTestId)).toHaveStyle(style);
   });
 
-  it('should have not attribute data-visible when property visible not provided', () => {
-    render(<SkeletonComponent visible={false} />);
-    expect(getSkeletonElement()).not.toHaveAttribute('data-visible');
+  it('should have not data-visible attribute when property not visible provided', () => {
+    render(<Skeleton data-testid={dataTestId} visible={false} />);
+    expect(screen.getByTestId(dataTestId)).not.toHaveAttribute('data-visible');
   });
 
-  it('should have attribute data-visible when property visible provided', () => {
-    render(<SkeletonComponent visible={true} />);
-    expect(getSkeletonElement()).toHaveAttribute('data-visible');
+  it('should have data-visible attribute when property visible provided', () => {
+    render(<Skeleton data-testid={dataTestId} visible={true} />);
+    expect(screen.getByTestId(dataTestId)).toHaveAttribute('data-visible');
   });
 
-  it('should have not attribute data-animated when property animated not provided', () => {
-    render(<SkeletonComponent animated={false} />);
-    expect(getSkeletonElement()).not.toHaveAttribute('data-animated');
+  it('should have not data-animated attribute when animated property not provided', () => {
+    render(<Skeleton data-testid={dataTestId} animated={false} />);
+    expect(screen.getByTestId(dataTestId)).not.toHaveAttribute('data-animated');
   });
 
-  it('should have attribute data-animated when property animated provided', () => {
-    render(<SkeletonComponent animated={true} />);
-    expect(getSkeletonElement()).toHaveAttribute('data-animated');
+  it('should have data-animated attribute when animated property provided', () => {
+    render(<Skeleton data-testid={dataTestId} animated={true} />);
+    expect(screen.getByTestId(dataTestId)).toHaveAttribute('data-animated');
   });
 
-  it('should have appropriate css variable with value when property speedSafe provided', () => {
+  it('should have appropriate css variable with value when speedSafe property provided', () => {
     const speedSafe = 800;
 
-    render(<SkeletonComponent speedSafe={speedSafe} />);
-    expect(getSkeletonElement()).toHaveStyle({
+    render(<Skeleton data-testid={dataTestId} speedSafe={speedSafe} />);
+    expect(screen.getByTestId(dataTestId)).toHaveStyle({
       '--skeleton-safe-animation-duration': `${speedSafe}ms`,
     });
   });
 
-  it('should have appropriate css variable with value when property speedReduce provided', () => {
+  it('should have appropriate css variable with value when speedReduce property provided', () => {
     const speedReduce = 2000;
 
-    render(<SkeletonComponent speedReduce={speedReduce} />);
-    expect(getSkeletonElement()).toHaveStyle({
+    render(<Skeleton data-testid={dataTestId} speedReduce={speedReduce} />);
+    expect(screen.getByTestId(dataTestId)).toHaveStyle({
       '--skeleton-reduce-animation-duration': `${speedReduce}ms`,
     });
   });
