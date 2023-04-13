@@ -1,4 +1,5 @@
 export * from './components/action-icon';
+export * from './components/alert';
 export * from './components/burger';
 export * from './components/button';
 export * from './components/close-button';
