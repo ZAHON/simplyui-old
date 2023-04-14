@@ -38,7 +38,7 @@ export const buttonStyles = cva(
         sm: ['h-8', 'gap-x-1.5', 'px-2.5', 'rounded-sm', 'text-sm'],
         md: ['h-10', 'gap-x-2', 'px-3.5', 'rounded-md', 'text-base'],
         lg: ['h-12', 'gap-x-2.5', 'px-5', 'rounded-lg', 'text-lg'],
-        xl: ['h-16', 'gap-x-3', 'px-6', 'rounded-xl', 'text-xl'],
+        xl: ['h-14', 'gap-x-3', 'px-6', 'rounded-xl', 'text-xl'],
       },
       rounded: {
         none: ['rounded-none'],
@@ -47,15 +47,13 @@ export const buttonStyles = cva(
         md: ['rounded-md'],
         lg: ['rounded-lg'],
         xl: ['rounded-xl'],
-        '2xl': ['rounded-2xl'],
-        '3xl': ['rounded-3xl'],
         full: ['rounded-full'],
       },
       variant: {
         filled: [''],
         light: [''],
-        outline: ['border-2'],
-        subtle: [''],
+        outline: ['bg-transparent', 'border-2'],
+        subtle: ['bg-transparent'],
       },
       color: {
         neutral: [''],
@@ -89,8 +87,9 @@ export const buttonStyles = cva(
           'bg-neutral-4',
 
           'enabled:hover:bg-neutral-5',
-          'enabled:focus-visible:bg-neutral-5',
           'enabled:active:bg-neutral-6',
+
+          'focus-visible:bg-neutral-5',
         ],
       },
       {
@@ -98,8 +97,7 @@ export const buttonStyles = cva(
         variant: 'outline',
         className: [
           'text-neutral-12',
-          'bg-neutral-1',
-          'border-neutral-7',
+          'border-neutral-12',
 
           'enabled:hover:text-white',
           'enabled:hover:bg-neutral-9',
@@ -114,13 +112,11 @@ export const buttonStyles = cva(
         color: 'neutral',
         variant: 'subtle',
         className: [
-          'bg-transparent',
-
           'text-neutral-12',
+
           'enabled:hover:bg-neutral-4',
           'enabled:active:bg-neutral-5',
 
-          'focus-visible:bg-neutral-4',
           'focus-visible:bg-neutral-5',
         ],
       },
@@ -146,39 +142,35 @@ export const buttonStyles = cva(
           'bg-primary-4',
 
           'enabled:hover:bg-primary-5',
-          'enabled:focus-visible:bg-primary-5',
           'enabled:active:bg-primary-6',
+
+          'focus-visible:bg-primary-5',
         ],
       },
       {
         color: 'primary',
         variant: 'outline',
         className: [
-          'text-primary-11',
-          'bg-primary-1',
-          'border-primary-7',
+          'text-primary-9',
+          'border-primary-9',
 
           'enabled:hover:text-white',
           'enabled:hover:bg-primary-9',
-          'enabled:hover:border-primary-9',
 
           'focus-visible:text-white',
           'focus-visible:bg-primary-9',
-          'focus-visible:border-primary-9',
         ],
       },
       {
         color: 'primary',
         variant: 'subtle',
         className: [
-          'bg-transparent',
-
           'text-primary-11',
+
           'enabled:hover:bg-primary-4',
           'enabled:active:bg-primary-5',
 
           'focus-visible:bg-primary-4',
-          'focus-visible:bg-primary-5',
         ],
       },
 
@@ -203,39 +195,35 @@ export const buttonStyles = cva(
           'bg-secondary-4',
 
           'enabled:hover:bg-secondary-5',
-          'enabled:focus-visible:bg-secondary-5',
           'enabled:active:bg-secondary-6',
+
+          'focus-visible:bg-secondary-5',
         ],
       },
       {
         color: 'secondary',
         variant: 'outline',
         className: [
-          'text-secondary-11',
-          'bg-secondary-1',
-          'border-secondary-7',
+          'text-secondary-9',
+          'border-secondary-9',
 
           'enabled:hover:text-white',
           'enabled:hover:bg-secondary-9',
-          'enabled:hover:border-secondary-9',
 
           'focus-visible:text-white',
           'focus-visible:bg-secondary-9',
-          'focus-visible:border-secondary-9',
         ],
       },
       {
         color: 'secondary',
         variant: 'subtle',
         className: [
-          'bg-transparent',
-
           'text-secondary-11',
+
           'enabled:hover:bg-secondary-4',
           'enabled:active:bg-secondary-5',
 
           'focus-visible:bg-secondary-4',
-          'focus-visible:bg-secondary-5',
         ],
       },
 
@@ -260,39 +248,35 @@ export const buttonStyles = cva(
           'bg-info-4',
 
           'enabled:hover:bg-info-5',
-          'enabled:focus-visible:bg-info-5',
           'enabled:active:bg-info-6',
+
+          'focus-visible:bg-info-5',
         ],
       },
       {
         color: 'info',
         variant: 'outline',
         className: [
-          'text-info-11',
-          'bg-info-1',
-          'border-info-7',
+          'text-info-9',
+          'border-info-9',
 
           'enabled:hover:text-black',
           'enabled:hover:bg-info-9',
-          'enabled:hover:border-info-9',
 
           'focus-visible:text-black',
           'focus-visible:bg-info-9',
-          'focus-visible:border-info-9',
         ],
       },
       {
         color: 'info',
         variant: 'subtle',
         className: [
-          'bg-transparent',
-
           'text-info-11',
+
           'enabled:hover:bg-info-4',
           'enabled:active:bg-info-5',
 
           'focus-visible:bg-info-4',
-          'focus-visible:bg-info-5',
         ],
       },
 
@@ -317,39 +301,35 @@ export const buttonStyles = cva(
           'bg-success-4',
 
           'enabled:hover:bg-success-5',
-          'enabled:focus-visible:bg-success-5',
           'enabled:active:bg-success-6',
+
+          'focus-visible:bg-success-5',
         ],
       },
       {
         color: 'success',
         variant: 'outline',
         className: [
-          'text-success-11',
-          'bg-success-1',
-          'border-success-7',
+          'text-success-9',
+          'border-success-9',
 
           'enabled:hover:text-white',
           'enabled:hover:bg-success-9',
-          'enabled:hover:border-success-9',
 
           'focus-visible:text-white',
           'focus-visible:bg-success-9',
-          'focus-visible:border-success-9',
         ],
       },
       {
         color: 'success',
         variant: 'subtle',
         className: [
-          'bg-transparent',
-
           'text-success-11',
+
           'enabled:hover:bg-success-4',
           'enabled:active:bg-success-5',
 
           'focus-visible:bg-success-4',
-          'focus-visible:bg-success-5',
         ],
       },
 
@@ -374,39 +354,35 @@ export const buttonStyles = cva(
           'bg-warning-4',
 
           'enabled:hover:bg-warning-5',
-          'enabled:focus-visible:bg-warning-5',
           'enabled:active:bg-warning-6',
+
+          'focus-visible:bg-warning-5',
         ],
       },
       {
         color: 'warning',
         variant: 'outline',
         className: [
-          'text-warning-11',
-          'bg-warning-1',
-          'border-warning-7',
+          'text-warning-9',
+          'border-warning-9',
 
           'enabled:hover:text-black',
           'enabled:hover:bg-warning-9',
-          'enabled:hover:border-warning-9',
 
           'focus-visible:text-black',
           'focus-visible:bg-warning-9',
-          'focus-visible:border-warning-9',
         ],
       },
       {
         color: 'warning',
         variant: 'subtle',
         className: [
-          'bg-transparent',
-
           'text-warning-11',
+
           'enabled:hover:bg-warning-4',
           'enabled:active:bg-warning-5',
 
           'focus-visible:bg-warning-4',
-          'focus-visible:bg-warning-5',
         ],
       },
 
@@ -431,39 +407,35 @@ export const buttonStyles = cva(
           'bg-error-4',
 
           'enabled:hover:bg-error-5',
-          'enabled:focus-visible:bg-error-5',
           'enabled:active:bg-error-6',
+
+          'focus-visible:bg-error-5',
         ],
       },
       {
         color: 'error',
         variant: 'outline',
         className: [
-          'text-error-11',
-          'bg-error-1',
-          'border-error-7',
+          'text-error-9',
+          'border-error-9',
 
           'enabled:hover:text-white',
           'enabled:hover:bg-error-9',
-          'enabled:hover:border-error-9',
 
           'focus-visible:text-white',
           'focus-visible:bg-error-9',
-          'focus-visible:border-error-9',
         ],
       },
       {
         color: 'error',
         variant: 'subtle',
         className: [
-          'bg-transparent',
-
           'text-error-11',
+
           'enabled:hover:bg-error-4',
           'enabled:active:bg-error-5',
 
           'focus-visible:bg-error-4',
-          'focus-visible:bg-error-5',
         ],
       },
     ],

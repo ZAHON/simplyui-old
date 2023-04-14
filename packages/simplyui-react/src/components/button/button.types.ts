@@ -2,10 +2,7 @@ import type { ButtonHTMLAttributes, ReactNode, CSSProperties } from 'react';
 import type { ButtonLoaderProps } from './button-loader/button-loader.types';
 import type { Size, Rounded, Color } from '../../types';
 
-type HTMLAttributesToOmit = 'className' | 'style';
-
-export interface ButtonProps
-  extends Omit<ButtonHTMLAttributes<HTMLButtonElement>, HTMLAttributesToOmit> {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /**
    * The content of the button.
    */
@@ -108,20 +105,20 @@ export interface ButtonProps
   /**
    * Override button left icon wrapper default styles.
    */
-  leftIconClassName?: string;
+  leftIconWrapperClassName?: string;
 
   /**
    * Override button left icon wrapper default inline style.
    */
-  leftIconStyle?: CSSProperties;
+  leftIconWrapperStyle?: CSSProperties;
 
   /**
    * Override button right icon wrapper default styles.
    */
-  rightIconClassName?: string;
+  rightIconWrapperClassName?: string;
 
   /**
    * Override button right icon wrapper default inline style.
    */
-  rightIconStyle?: CSSProperties;
+  rightIconWrapperStyle?: CSSProperties;
 }

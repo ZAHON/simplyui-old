@@ -30,33 +30,52 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
     leftIcon,
     rightIcon,
     className,
-    leftIconClassName,
-    leftIconStyle,
-    rightIconClassName,
-    rightIconStyle,
+    leftIconWrapperClassName,
+    leftIconWrapperStyle,
+    rightIconWrapperClassName,
+    rightIconWrapperStyle,
     children,
     ...others
   } = applayComponentDefaultProps(defaultProps, props);
 
-  const loaderComponent = loader ? loader : <ButtonLoader {...loaderProps} settings={{ size }} />;
+  const dataDisabled = disabled ? '' : undefined;
+  const dataLoading = loading ? '' : undefined;
+
+  const loaderComponent = loader ? (
+    loader
+  ) : (
+    <ButtonLoader {...loaderProps} data-disabled={dataDisabled} buttonSize={size} />
+  );
   const buttonLoader = loading ? loaderComponent : null;
 
-  const buttonLeftIcon = leftIcon ? (
-    <span style={leftIconStyle} className={twMerge(leftIconClassName)}>
+  const buttonLeftIcon = leftIcon && (
+    <span
+      data-disabled={dataDisabled}
+      data-loading={dataLoading}
+      style={leftIconWrapperStyle}
+      className={twMerge(leftIconWrapperClassName)}
+    >
       {leftIcon}
     </span>
-  ) : null;
+  );
 
-  const buttonRightIcon = rightIcon ? (
-    <span style={rightIconStyle} className={twMerge(rightIconClassName)}>
+  const buttonRightIcon = rightIcon && (
+    <span
+      data-disabled={dataDisabled}
+      data-loading={dataLoading}
+      style={rightIconWrapperStyle}
+      className={twMerge(rightIconWrapperClassName)}
+    >
       {rightIcon}
     </span>
-  ) : null;
+  );
 
   return (
     <button
       {...others}
       ref={ref}
+      data-disabled={dataDisabled}
+      data-loading={dataLoading}
       disabled={disabled || loading}
       className={twMerge(
         buttonStyles({ size, variant, color, fullWidth, rounded, uppercase }),

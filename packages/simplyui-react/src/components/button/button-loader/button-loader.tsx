@@ -9,12 +9,9 @@ const defaultProps: Partial<ButtonLoaderProps> = {
 };
 
 export function ButtonLoader(props: ButtonLoaderProps) {
-  const { settings, className, ...others } = applayComponentDefaultProps(defaultProps, props);
+  const { buttonSize, className, ...others } = applayComponentDefaultProps(defaultProps, props);
 
   return (
-    <Loader
-      {...others}
-      className={twMerge(buttonLoaderStyles({ size: settings.size }), className)}
-    />
+    <Loader {...others} className={twMerge(buttonLoaderStyles({ size: buttonSize }), className)} />
   );
 }

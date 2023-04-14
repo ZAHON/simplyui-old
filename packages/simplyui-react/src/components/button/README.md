@@ -20,7 +20,7 @@ function Demo() {
 
 ## Disabled state
 
-Use the `disabled` property to disable interaction and focus.
+Use the `disabled` property to disable interaction and focus. When `disabled` property is set to `true` Button has `data-disabled` attribute.
 
 ```jsx
 import { Button } from '@simplyui/react';
@@ -32,7 +32,7 @@ function Demo() {
 
 ## Loading state
 
-Use the `loading` property to show the Button loading state. In this state [Loader](../loader/README.md) component replaces left or right icon and Button becomes disabled.
+Use the `loading` property to show the Button loading state. In this state [Loader](../loader/README.md) component replaces left or right icon and Button becomes disabled. When `loading` property is set to `true` Button has `data-loading` attribute.
 
 ```jsx
 import { Button } from '@simplyui/react';
@@ -95,7 +95,7 @@ function Demo() {
 }
 ```
 
-## Replace default [Loader](../loader/README.md) component
+### Replace default [Loader](../loader/README.md) component
 
 You can replace default loader component with `loader` property.
 
@@ -202,7 +202,7 @@ function Demo() {
 
 ## Border radius
 
-Each size of Button includes appropriate border radius value. You can change this value with `rounded` property.
+Each size of Button includes appropriate border radius value. Use `rounded` property to override border radius determined by `size` property. You can set the value to `none`, `xs`, `sm`, `md`, `lg`, `xl` or `full`.
 
 ```jsx
 import { Button } from '@simplyui/react';
@@ -216,8 +216,6 @@ function Demo() {
       <Button rounded="md">Rounded md</Button>
       <Button rounded="lg">Rounded lg</Button>
       <Button rounded="xl">Rounded xl</Button>
-      <Button rounded="2xl">Rounded 2xl</Button>
-      <Button rounded="3xl">Rounded 3xl</Button>
       <Button rounded="full">Rounded full</Button>
     </div>
   );

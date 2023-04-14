@@ -1,3 +1,5 @@
+import { ButtonProps } from './button.types';
+import { createRef } from 'react';
 import { screen, render } from '@testing-library/react';
 import { Button } from './button';
 
@@ -7,17 +9,44 @@ const rightIcon = 'right-icon';
 
 describe('Button', () => {
   describe('Root element', () => {
-    it('should be disabled when property disabled provided', () => {
+    it('should support ref', () => {
+      const ref = createRef<HTMLButtonElement>();
+
+      render(<Button ref={ref}>{buttonContent}</Button>);
+      expect(ref.current).toBeInstanceOf(HTMLButtonElement);
+    });
+
+    it('should have not data-disabled attribute when disabled property not provided', () => {
+      render(<Button disabled={false}>{buttonContent}</Button>);
+      expect(screen.getByText(buttonContent)).not.toHaveAttribute('data-disabled');
+    });
+
+    it('should have data-disabled attribute when disabled property provided', () => {
+      render(<Button disabled={true}>{buttonContent}</Button>);
+      expect(screen.getByText(buttonContent)).toHaveAttribute('data-disabled');
+    });
+
+    it('should have not data-loading attribute when loading property not provided', () => {
+      render(<Button loading={false}>{buttonContent}</Button>);
+      expect(screen.getByText(buttonContent)).not.toHaveAttribute('data-loading');
+    });
+
+    it('should have data-loading attribute when loading property provided', () => {
+      render(<Button loading={true}>{buttonContent}</Button>);
+      expect(screen.getByText(buttonContent)).toHaveAttribute('data-loading');
+    });
+
+    it('should be disabled when disabled property provided', () => {
       render(<Button disabled={true}>{buttonContent}</Button>);
       expect(screen.getByText(buttonContent)).toBeDisabled;
     });
 
-    it('should be disabled when property loading provided', () => {
+    it('should be disabled when loading property provided', () => {
       render(<Button loading={true}>{buttonContent}</Button>);
       expect(screen.getByText(buttonContent)).toBeDisabled;
     });
 
-    it('should have loading content when properties loading and loadingContent provided', () => {
+    it('should have loading content when loading and loadingContent properties provided', () => {
       const loadingContent = 'Loading';
 
       const { rerender } = render(<Button>{buttonContent}</Button>);
@@ -37,37 +66,37 @@ describe('Button', () => {
       expect(screen.getByText(loadingContent)).toBeInTheDocument();
     });
 
-    it('should not include left icon when property leftIcon not provided', () => {
+    it('should not include left icon when leftIcon property not provided', () => {
       render(<Button>{buttonContent}</Button>);
       expect(screen.queryByText(leftIcon)).not.toBeInTheDocument();
     });
 
-    it('should include left icon when property leftIcon provided', () => {
+    it('should include left icon when leftIcon property provided', () => {
       render(<Button leftIcon={leftIcon}>{buttonContent}</Button>);
       expect(screen.getByText(leftIcon)).toBeInTheDocument();
     });
 
-    it('should not include right icon when property rightIcon not provided', () => {
+    it('should not include right icon when rightIcon property not provided', () => {
       render(<Button>{buttonContent}</Button>);
       expect(screen.queryByText(rightIcon)).not.toBeInTheDocument();
     });
 
-    it('should include right icon when property rightIcon provided', () => {
+    it('should include right icon when rightIcon property provided', () => {
       render(<Button rightIcon={rightIcon}>{buttonContent}</Button>);
       expect(screen.getByText(rightIcon)).toBeInTheDocument();
     });
 
-    it('should not include loader when property loading not provided', () => {
+    it('should not include loader when loading property not provided', () => {
       render(<Button>{buttonContent}</Button>);
       expect(screen.queryByRole('status')).not.toBeInTheDocument();
     });
 
-    it('should include loader when property loading provided', () => {
+    it('should include loader when loading property provided', () => {
       render(<Button loading={true}>{buttonContent}</Button>);
       expect(screen.getByRole('status')).toBeInTheDocument();
     });
 
-    it('should include custom loader when properties loading and loader provided', () => {
+    it('should include custom loader when loading and loader properties provided', () => {
       function CustomLoader() {
         return <span>Loader</span>;
       }
@@ -85,14 +114,14 @@ describe('Button', () => {
       expect(screen.getByText('Loader')).toBeInTheDocument();
     });
 
-    it('should have class name handed over when property className provided', () => {
+    it('should have class name handed over by className property', () => {
       const className = 'test';
 
       render(<Button className={className}>{buttonContent}</Button>);
       expect(screen.getByText(buttonContent)).toHaveClass(className);
     });
 
-    it('should have style handed over when property style provided', () => {
+    it('should have style handed over by style property', () => {
       const style = { backgroundColor: 'red' };
 
       render(<Button style={style}>{buttonContent}</Button>);
@@ -101,7 +130,48 @@ describe('Button', () => {
   });
 
   describe('Left icon wrapper element', () => {
-    it('should include loader when property loading provided and property loaderPosition is set to left', () => {
+    function getLeftIconWrapperElement() {
+      // eslint-disable-next-line testing-library/no-node-access
+      return screen.getByText(leftIcon).parentElement;
+    }
+
+    it('should have not data-disabled attribute when disabled property not provided', () => {
+      render(
+        <Button disabled={false} leftIcon={leftIcon}>
+          {buttonContent}
+        </Button>
+      );
+      expect(getLeftIconWrapperElement()).not.toHaveAttribute('data-disabled');
+    });
+
+    it('should have data-disabled attribute when disabled property provided', () => {
+      render(
+        <Button disabled={true} leftIcon={leftIcon}>
+          {buttonContent}
+        </Button>
+      );
+      expect(getLeftIconWrapperElement()).toHaveAttribute('data-disabled');
+    });
+
+    it('should have not data-loading attribute when loading property not provided', () => {
+      render(
+        <Button loading={false} leftIcon={leftIcon}>
+          {buttonContent}
+        </Button>
+      );
+      expect(getLeftIconWrapperElement()).not.toHaveAttribute('data-loading');
+    });
+
+    it('should have data-loading attribute when loading property provided', () => {
+      render(
+        <Button loading={true} loaderPosition="right" leftIcon={leftIcon} rightIcon={rightIcon}>
+          {buttonContent}
+        </Button>
+      );
+      expect(getLeftIconWrapperElement()).toHaveAttribute('data-loading');
+    });
+
+    it('should include loader when loading property provided and loaderPosition property is set to "left"', () => {
       const { rerender } = render(<Button>{buttonContent}</Button>);
       expect(screen.queryByText(leftIcon)).not.toBeInTheDocument();
       expect(screen.queryByRole('status')).not.toBeInTheDocument();
@@ -127,31 +197,72 @@ describe('Button', () => {
       expect(screen.getByRole('status')).toBeInTheDocument();
     });
 
-    it('should have class name handed over when property leftIconClassName provided', () => {
-      const leftIconClassName = 'test';
+    it('should have class name handed over by leftIconWrapperClassName property', () => {
+      const leftIconWrapperClassName = 'test';
 
       render(
-        <Button leftIcon={leftIcon} leftIconClassName={leftIconClassName}>
+        <Button leftIcon={leftIcon} leftIconWrapperClassName={leftIconWrapperClassName}>
           {buttonContent}
         </Button>
       );
-      expect(screen.getByText(leftIcon)).toHaveClass(leftIconClassName);
+      expect(screen.getByText(leftIcon)).toHaveClass(leftIconWrapperClassName);
     });
 
-    it('should have style handed over when property leftIconStyle provided', () => {
-      const leftIconStyle = { backgroundColor: 'red' };
+    it('should have style handed over by leftIconWrapperStyle property', () => {
+      const leftIconWrapperStyle = { backgroundColor: 'red' };
 
       render(
-        <Button leftIcon={leftIcon} leftIconStyle={leftIconStyle}>
+        <Button leftIcon={leftIcon} leftIconWrapperStyle={leftIconWrapperStyle}>
           {buttonContent}
         </Button>
       );
-      expect(screen.getByText(leftIcon)).toHaveStyle(leftIconStyle);
+      expect(screen.getByText(leftIcon)).toHaveStyle(leftIconWrapperStyle);
     });
   });
 
   describe('Right icon wrapper element', () => {
-    it('should include loader when property loading provided and property loaderPosition is set to right', () => {
+    function getRightIconWrapperElement() {
+      // eslint-disable-next-line testing-library/no-node-access
+      return screen.getByText(rightIcon).parentElement;
+    }
+
+    it('should have not data-disabled attribute when disabled property not provided', () => {
+      render(
+        <Button disabled={false} rightIcon={rightIcon}>
+          {buttonContent}
+        </Button>
+      );
+      expect(getRightIconWrapperElement()).not.toHaveAttribute('data-disabled');
+    });
+
+    it('should have data-disabled attribute when disabled property provided', () => {
+      render(
+        <Button disabled={true} rightIcon={rightIcon}>
+          {buttonContent}
+        </Button>
+      );
+      expect(getRightIconWrapperElement()).toHaveAttribute('data-disabled');
+    });
+
+    it('should have not data-loading attribute when loading property not provided', () => {
+      render(
+        <Button loading={false} rightIcon={rightIcon}>
+          {buttonContent}
+        </Button>
+      );
+      expect(getRightIconWrapperElement()).not.toHaveAttribute('data-loading');
+    });
+
+    it('should have data-loading attribute when loading property provided', () => {
+      render(
+        <Button loading={true} loaderPosition="left" leftIcon={leftIcon} rightIcon={rightIcon}>
+          {buttonContent}
+        </Button>
+      );
+      expect(getRightIconWrapperElement()).toHaveAttribute('data-loading');
+    });
+
+    it('should include loader when loading property provided and loaderPosition property is set to "right"', () => {
       const { rerender } = render(<Button>{buttonContent}</Button>);
       expect(screen.queryByText(rightIcon)).not.toBeInTheDocument();
       expect(screen.queryByRole('status')).not.toBeInTheDocument();
@@ -177,26 +288,46 @@ describe('Button', () => {
       expect(screen.getByRole('status')).toBeInTheDocument();
     });
 
-    it('should have class name handed over when property rightIconClassName provided', () => {
-      const rightIconClassName = 'test';
+    it('should have class name handed over by rightIconWrapperClassName property', () => {
+      const rightIconWrapperClassName = 'test';
 
       render(
-        <Button rightIcon={rightIcon} rightIconClassName={rightIconClassName}>
+        <Button rightIcon={rightIcon} rightIconWrapperClassName={rightIconWrapperClassName}>
           {buttonContent}
         </Button>
       );
-      expect(screen.getByText(rightIcon)).toHaveClass(rightIconClassName);
+      expect(screen.getByText(rightIcon)).toHaveClass(rightIconWrapperClassName);
     });
 
-    it('should have style handed over when property rightIconStyle provided', () => {
-      const rightIconStyle = { backgroundColor: 'red' };
+    it('should have style handed over by rightIconWrapperStyle property', () => {
+      const rightIconWrapperStyle = { backgroundColor: 'red' };
 
       render(
-        <Button rightIcon={rightIcon} rightIconStyle={rightIconStyle}>
+        <Button rightIcon={rightIcon} rightIconWrapperStyle={rightIconWrapperStyle}>
           {buttonContent}
         </Button>
       );
-      expect(screen.getByText(rightIcon)).toHaveStyle(rightIconStyle);
+      expect(screen.getByText(rightIcon)).toHaveStyle(rightIconWrapperStyle);
+    });
+  });
+
+  describe('Loader element', () => {
+    function ButtonWithLoader(props: Omit<ButtonProps, 'children'>) {
+      return (
+        <Button loading={true} {...props}>
+          {buttonContent}
+        </Button>
+      );
+    }
+
+    it('should have not data-disabled attribute when disabled property not provided', () => {
+      render(<ButtonWithLoader disabled={false} />);
+      expect(screen.getByRole('status')).not.toHaveAttribute('data-disabled');
+    });
+
+    it('should have data-disabled attribute when disabled property provided', () => {
+      render(<ButtonWithLoader disabled={true} />);
+      expect(screen.getByRole('status')).toHaveAttribute('data-disabled');
     });
   });
 });
