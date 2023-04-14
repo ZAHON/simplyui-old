@@ -1,11 +1,11 @@
-import type { LabelHTMLAttributes, ReactNode } from 'react';
+import type { LabelHTMLAttributes, ReactNode, CSSProperties } from 'react';
 import type { Size } from '../../types';
 
 export interface LabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
   /**
    * The id of the element the label is associated with.
    */
-  htmlFor: string;
+  htmlFor?: string;
 
   /**
    * The content of the label.
@@ -31,7 +31,7 @@ export interface LabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
   withRequiredIndicator?: boolean;
 
   /**
-   * The size of the label.
+   * The font size of the text inside label.
    * @default "md"
    */
   size?: Size;
@@ -42,7 +42,17 @@ export interface LabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
   className?: string;
 
   /**
-   * Override required indicator default styles.
+   * Override label default inline style.
+   */
+  style?: CSSProperties;
+
+  /**
+   * Override label required indicator default styles.
    */
   requiredIndicatorClassName?: string;
+
+  /**
+   * Override label required indicator default inline style.
+   */
+  requiredIndicatorStyle?: CSSProperties;
 }

@@ -22,3 +22,5 @@ export const labelStyles = cva(
     },
   }
 );
+
+export const labelRequiredIndicatorStyles = cva(['text-error-11']);
