@@ -45,10 +45,10 @@ export default {
     rightIcon: { control: false },
     className: { control: false },
     style: { control: false },
-    leftIconClassName: { control: false },
-    leftIconStyle: { control: false },
-    rightIconClassName: { control: false },
-    rightIconStyle: { control: false },
+    leftIconWrapperClassName: { control: false },
+    leftIconWrapperStyle: { control: false },
+    rightIconWrapperClassName: { control: false },
+    rightIconWrapperStyle: { control: false },
   },
 } as ComponentMeta<typeof Button>;
 
