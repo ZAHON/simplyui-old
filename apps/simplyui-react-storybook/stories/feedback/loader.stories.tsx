@@ -13,11 +13,17 @@ export default {
     speedSafe: 750,
     speedReduce: 1500,
     label: 'Loading...',
+    loaderSize: '',
+    loaderThickness: '',
   },
   argTypes: {
     variant: { control: 'select' },
     size: { control: 'select' },
     color: { control: 'select' },
+    loaderSize: { control: 'text' },
+    loaderThickness: { control: 'text' },
+    className: { control: false },
+    style: { control: false },
   },
 } as ComponentMeta<typeof Loader>;
 
@@ -25,17 +31,23 @@ const Template: ComponentStory<typeof Loader> = (args) => <Loader {...args} />;
 
 export const Default = Template.bind({});
 
-export const Border = Template.bind({});
-Border.args = {
+export const OvalVariant = Template.bind({});
+OvalVariant.args = {
+  variant: 'oval',
+};
+
+export const BorderVariant = Template.bind({});
+BorderVariant.args = {
   variant: 'border',
 };
 
-export const Spinner = Template.bind({});
-Spinner.args = {
+export const SpinnerVariant = Template.bind({});
+SpinnerVariant.args = {
   variant: 'spinner',
 };
 
 export const CustomSize = Template.bind({});
 CustomSize.args = {
-  className: '[--loader-size:100px] [--loader-border:10px]',
+  loaderSize: '100px',
+  loaderThickness: '10px',
 };
