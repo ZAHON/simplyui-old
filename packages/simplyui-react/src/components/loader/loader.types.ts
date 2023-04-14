@@ -15,6 +15,16 @@ export interface LoaderProps extends HTMLAttributes<HTMLDivElement> {
   size?: Size;
 
   /**
+   * The custom size of the loader. This property override loader size determined by `size` property.
+   */
+  loaderSize?: number | string;
+
+  /**
+   * The custom thickness of the loader. This property override loader thickness determined by `size` property.
+   */
+  loaderThickness?: number | string;
+
+  /**
    * The color of the loader.
    * @default "primary"
    */
@@ -42,9 +52,16 @@ export interface LoaderProps extends HTMLAttributes<HTMLDivElement> {
    * Override loader default styles.
    */
   className?: string;
+
+  /**
+   * Override loader default inline style.
+   */
+  style?: CSSProperties;
 }
 
 export interface LoaderStyle extends CSSProperties {
-  '--loader-animation-duration'?: string;
+  '--loader-size'?: number | string;
+  '--loader-thickness'?: number | string;
+  '--loader-safe-animation-duration'?: string;
   '--loader-reduce-animation-duration'?: string;
 }

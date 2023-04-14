@@ -14,12 +14,26 @@ export const defaultProps: Partial<LoaderProps> = {
 };
 
 export const Loader = forwardRef<HTMLDivElement, LoaderProps>(function Loader(props, ref) {
-  const { variant, size, color, speedSafe, speedReduce, label, style, className, ...others } =
-    applayComponentDefaultProps(defaultProps, props);
+  const {
+    variant,
+    size,
+    loaderSize,
+    loaderThickness,
+    color,
+    speedSafe,
+    speedReduce,
+    label,
+    style,
+    className,
+    ...others
+  } = applayComponentDefaultProps(defaultProps, props);
 
   const loaderStyle: LoaderStyle = {
-    '--loader-animation-duration': `${speedSafe}ms`,
+    '--loader-size': loaderSize,
+    '--loader-thickness': loaderThickness,
+    '--loader-safe-animation-duration': `${speedSafe}ms`,
     '--loader-reduce-animation-duration': `${speedReduce}ms`,
+    ...style,
   };
 
   return (
@@ -28,7 +42,7 @@ export const Loader = forwardRef<HTMLDivElement, LoaderProps>(function Loader(pr
       key={variant}
       ref={ref}
       role="status"
-      style={{ ...style, ...loaderStyle }}
+      style={loaderStyle}
       className={twMerge(loaderStyles({ variant, size, color }), className)}
     >
       <span className="sr-only">{label}</span>

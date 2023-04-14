@@ -36,26 +36,6 @@ function Demo() {
 }
 ```
 
-## Sizes
-
-Use the `size` property to change the size of the Loader. You can set the value to `xs`, `sm`, `md`, `lg` or `xl`. The default value is `md`.
-
-```jsx
-import { Loader } from '@simplyui/react';
-
-function Demo() {
-  return (
-    <div className="flex gap-x-4">
-      <Loader size="xs" />
-      <Loader size="sm" />
-      <Loader size="md" />
-      <Loader size="lg" />
-      <Loader size="xl" />
-    </div>
-  );
-}
-```
-
 ## Colors
 
 Use the `color` property to change the color of the Loader. You can set the value to `currentColor`, `neutral`, `primary`, `secondary`, `info`, `success`, `warning` or `error`. The default value is `primary`.
@@ -79,6 +59,38 @@ function Demo() {
 }
 ```
 
+## Sizes
+
+Use the `size` property to change the size of the Loader. You can set the value to `xs`, `sm`, `md`, `lg` or `xl`. The default value is `md`.
+
+```jsx
+import { Loader } from '@simplyui/react';
+
+function Demo() {
+  return (
+    <div className="flex items-center gap-x-4">
+      <Loader size="xs" />
+      <Loader size="sm" />
+      <Loader size="md" />
+      <Loader size="lg" />
+      <Loader size="xl" />
+    </div>
+  );
+}
+```
+
+## Custon size
+
+Use `loaderSize` and `loaderThickness` properties to override Loader size and thickness determined by `size` property.
+
+```jsx
+import { Loader } from '@simplyui/react';
+
+function Demo() {
+  return <Loader loaderSize="100px" loaderThickness="10px" />;
+}
+```
+
 ## Animation duration
 
 The animation duration of this component is dependent on the `prefers-reduced-motion` media query.
@@ -94,7 +106,7 @@ function Demo() {
 }
 ```
 
-## Get loader ref
+## Get element ref
 
 ```tsx
 import { useRef } from 'react';
