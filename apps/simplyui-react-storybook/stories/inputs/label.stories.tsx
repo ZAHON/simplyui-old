@@ -7,8 +7,8 @@ export default {
   title: 'Inputs/Label',
   component: Label,
   args: {
-    htmlFor: 'input-id',
     children: 'Label',
+    htmlFor: 'input-id',
     disabled: false,
     size: 'md',
     requiredIndicator: ' *',
@@ -17,7 +17,9 @@ export default {
   argTypes: {
     size: { control: 'select' },
     className: { control: false },
+    style: { control: false },
     requiredIndicatorClassName: { control: false },
+    requiredIndicatorStyle: { control: false },
   },
 } as ComponentMeta<typeof Label>;
 
@@ -30,13 +32,31 @@ Disabled.args = {
   disabled: true,
 };
 
+export const WithControl = Template.bind({});
+WithControl.args = {
+  htmlFor: 'input-id',
+};
+WithControl.decorators = [
+  (Story) => (
+    <div className="flex flex-col gap-y-1">
+      <Story />
+      <input
+        id="input-id"
+        defaultValue="Test"
+        type="text"
+        className="h-10 px-2 text-base bg-transparent text-neutral-12 rounded-md border-2 border-neutral-7 focus:outline-none focus:border-primary-9"
+      />
+    </div>
+  ),
+];
+
 export const WithRequiredIndicator = Template.bind({});
 WithRequiredIndicator.args = {
   withRequiredIndicator: true,
 };
 
-export const CustomRequiredIndicator = Template.bind({});
-CustomRequiredIndicator.args = {
+export const WithCustomRequiredIndicator = Template.bind({});
+WithCustomRequiredIndicator.args = {
   withRequiredIndicator: true,
   requiredIndicator: ' [required]',
 };
