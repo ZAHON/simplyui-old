@@ -3,7 +3,8 @@ import { forwardRef } from 'react';
 import { Root } from '@radix-ui/react-label';
 import { twMerge } from 'tailwind-merge';
 import { applayComponentDefaultProps } from '../../utils';
-import { labelStyles, labelRequiredIndicatorStyles } from './label.styles';
+import { LabelRequiredIndicator } from './label-required-indicator/label-required-indicator';
+import { labelStyles } from './label.styles';
 
 const defaultProps: Partial<LabelProps> = {
   size: 'md',
@@ -17,13 +18,18 @@ export const Label = forwardRef<HTMLLabelElement, LabelProps>(function FieldLabe
     requiredIndicator,
     withRequiredIndicator,
     className,
-    requiredIndicatorClassName,
-    requiredIndicatorStyle,
+    requiredIndicatorProps,
     children,
     ...others
   } = applayComponentDefaultProps(defaultProps, props);
 
   const dataDisabled = disabled ? '' : undefined;
+
+  const labelRequiredIndicator = withRequiredIndicator && (
+    <LabelRequiredIndicator data-disabled={dataDisabled} {...requiredIndicatorProps}>
+      {requiredIndicator}
+    </LabelRequiredIndicator>
+  );
 
   return (
     <Root
@@ -33,16 +39,7 @@ export const Label = forwardRef<HTMLLabelElement, LabelProps>(function FieldLabe
       className={twMerge(labelStyles({ size }), className)}
     >
       {children}
-      {withRequiredIndicator && (
-        <span
-          aria-hidden
-          data-disabled={dataDisabled}
-          style={requiredIndicatorStyle}
-          className={twMerge(labelRequiredIndicatorStyles(), requiredIndicatorClassName)}
-        >
-          {requiredIndicator}
-        </span>
-      )}
+      {labelRequiredIndicator}
     </Root>
   );
 });

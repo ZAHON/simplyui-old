@@ -1,4 +1,5 @@
-import type { LabelHTMLAttributes, ReactNode, CSSProperties } from 'react';
+import type { LabelHTMLAttributes, ReactNode } from 'react';
+import type { LabelRequiredIndicatorProps } from './label-required-indicator/label-required-indicator.types';
 import type { Size } from '../../types';
 
 export interface LabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
@@ -13,7 +14,7 @@ export interface LabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
   children: ReactNode;
 
   /**
-   * If true, the label will be disabled and have "data-disabled" attribute.
+   * If true, the label will look like disabled and have `data-disabled` attribute, also required indicator element will have `data-disabled` attribute.
    * @default false
    */
   disabled?: boolean;
@@ -37,22 +38,7 @@ export interface LabelProps extends LabelHTMLAttributes<HTMLLabelElement> {
   size?: Size;
 
   /**
-   * Override label default styles.
+   * Props to forward to the required indicator element.
    */
-  className?: string;
-
-  /**
-   * Override label default inline style.
-   */
-  style?: CSSProperties;
-
-  /**
-   * Override label required indicator default styles.
-   */
-  requiredIndicatorClassName?: string;
-
-  /**
-   * Override label required indicator default inline style.
-   */
-  requiredIndicatorStyle?: CSSProperties;
+  requiredIndicatorProps?: Omit<LabelRequiredIndicatorProps, 'children'>;
 }
