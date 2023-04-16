@@ -9,17 +9,14 @@ export default {
   args: {
     children: 'Label',
     htmlFor: 'input-id',
-    disabled: false,
     size: 'md',
     requiredIndicator: ' *',
+    disabled: false,
     withRequiredIndicator: false,
   },
   argTypes: {
     size: { control: 'select' },
-    className: { control: false },
-    style: { control: false },
-    requiredIndicatorClassName: { control: false },
-    requiredIndicatorStyle: { control: false },
+    requiredIndicatorProps: { control: false },
   },
 } as ComponentMeta<typeof Label>;
 
