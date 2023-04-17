@@ -7,6 +7,7 @@ export * from './components/code';
 export * from './components/kbd';
 export * from './components/label';
 export * from './components/loader';
+export * from './components/native-select';
 export * from './components/progress';
 export * from './components/skeleton';
 export * from './components/text-input';
