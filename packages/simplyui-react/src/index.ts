@@ -10,5 +10,6 @@ export * from './components/loader';
 export * from './components/native-select';
 export * from './components/progress';
 export * from './components/skeleton';
+export * from './components/table';
 export * from './components/tabs';
 export * from './components/text-input';
