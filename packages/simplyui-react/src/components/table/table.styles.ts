@@ -66,6 +66,7 @@ export const tableStyles = cva(
         'striped-even': ['even:[&_tbody_tr]:bg-neutral-2', 'odd:[&_tbody_tr]:bg-transparent'],
       },
       size: {
+        inherit: [''],
         xs: ['text-xs'],
         sm: ['text-sm'],
         md: ['text-base'],

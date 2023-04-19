@@ -12,7 +12,7 @@ export interface TableProps extends TableHTMLAttributes<HTMLTableElement> {
    * The font size of the text inside table.
    * @default "md"
    */
-  size?: Size;
+  size?: 'inherit' | Size;
 
   /**
    * The variant of the table.
