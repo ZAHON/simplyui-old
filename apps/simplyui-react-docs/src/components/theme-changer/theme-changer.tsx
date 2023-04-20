@@ -1,8 +1,8 @@
 'use client';
 import { useState, useEffect } from 'react';
 import { useTheme } from 'next-themes';
-import { IconButton } from '@simplyui/react';
-import { IconSunHigh } from '@tabler/icons-react';
+import { NativeSelect } from '@simplyui/react';
+import { IconColorSwatch } from '@tabler/icons-react';
 
 export function ThemeChanger() {
   const [mounted, setMounted] = useState(false);
@@ -12,27 +12,27 @@ export function ThemeChanger() {
     setMounted(true);
   }, []);
 
-  const label = `Switch to ${theme} theme`;
-
-  function handleClick() {
-    if (theme) {
-      if (theme === 'light') {
-        setTheme('dark');
-      }
-
-      if (theme === 'dark') {
-        setTheme('light');
-      }
-    }
-  }
-
   if (!mounted) {
     return null;
   }
 
   return (
-    <IconButton size="sm" aria-label={label} onClick={handleClick}>
-      <IconSunHigh size="1rem" />
-    </IconButton>
+    <div className="relative">
+      <div className="h-8 w-8 absolute top-0 left-0 flex justify-center items-center pointer-events-none z-10">
+        <IconColorSwatch size="0.875rem" />
+      </div>
+      <NativeSelect
+        size="sm"
+        className="pl-8"
+        wrapperProps={{ className: 'w-30' }}
+        aria-label="Toggle theme"
+        value={theme}
+        onChange={(e) => setTheme(e.target.value)}
+      >
+        <option value="system">System</option>
+        <option value="dark">Dark</option>
+        <option value="light">Light</option>
+      </NativeSelect>
+    </div>
   );
 }
