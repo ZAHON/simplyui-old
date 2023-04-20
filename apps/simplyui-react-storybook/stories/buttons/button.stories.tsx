@@ -1,6 +1,6 @@
 import React from 'react';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
-import { BookmarkIcon, ArrowsRightLeftIcon } from '../../icons';
+import { BookmarkIcon } from '../../icons';
 
 import { Button } from '@simplyui/react/src';
 
@@ -41,14 +41,8 @@ export default {
     loaderPosition: { control: 'select' },
     loader: { control: false },
     loaderProps: { control: false },
-    leftIcon: { control: false },
-    rightIcon: { control: false },
-    className: { control: false },
-    style: { control: false },
-    leftIconWrapperClassName: { control: false },
-    leftIconWrapperStyle: { control: false },
-    rightIconWrapperClassName: { control: false },
-    rightIconWrapperStyle: { control: false },
+    leftSection: { control: false },
+    rightSection: { control: false },
   },
 } as ComponentMeta<typeof Button>;
 
@@ -108,18 +102,12 @@ Uppercase.args = {
   uppercase: true,
 };
 
-export const WithLeftIcon = Template.bind({});
-WithLeftIcon.args = {
-  leftIcon: <BookmarkIcon size="1rem" />,
+export const WithLeftSection = Template.bind({});
+WithLeftSection.args = {
+  leftSection: <BookmarkIcon size="1rem" />,
 };
 
-export const WithRightIcon = Template.bind({});
-WithRightIcon.args = {
-  rightIcon: <BookmarkIcon size="1rem" />,
-};
-
-export const WithLeftAndRightIcon = Template.bind({});
-WithLeftAndRightIcon.args = {
-  leftIcon: <BookmarkIcon size="1rem" />,
-  rightIcon: <ArrowsRightLeftIcon size="1rem" />,
+export const WithRightSection = Template.bind({});
+WithRightSection.args = {
+  rightSection: <BookmarkIcon size="1rem" />,
 };
