@@ -40,3 +40,6 @@ tailwind-output.css
 
 # build
 dist
+
+# vscode
+.vscode
