@@ -25,6 +25,7 @@ importers:
       eslint: 8.38.0
       eslint-config-custom: workspace:*
       next: 13.3.0
+      next-themes: ^0.2.1
       postcss: ^8.4.21
       react: ^18.2.0
       react-dom: ^18.2.0
@@ -37,6 +38,7 @@ importers:
       '@tabler/icons-react': 2.16.0_react@18.2.0
       class-variance-authority: 0.5.2_typescript@5.0.4
       next: 13.3.0_biqbaboplfbrettd7655fr4n2y
+      next-themes: 0.2.1_yucv4tfv7v7nrkw2uguegj6e7e
       react: 18.2.0
       react-dom: 18.2.0_react@18.2.0
       tailwind-merge: 1.12.0
@@ -11338,6 +11340,18 @@ packages:
   /nested-error-stacks/2.1.1:
     resolution: {integrity: sha512-9iN1ka/9zmX1ZvLV9ewJYEk9h7RyRRtqdK0woXcqohu8EWIerfPUjYJPg0ULy0UqP7cslmdGc8xKDJcojlKiaw==}
     dev: true
+
+  /next-themes/0.2.1_yucv4tfv7v7nrkw2uguegj6e7e:
+    resolution: {integrity: sha512-B+AKNfYNIzh0vqQQKqQItTS8evEouKD7H5Hj3kmuPERwddR2TxvDSFZuTj6T7Jfn1oyeUyJMydPl1Bkxkh0W7A==}
+    peerDependencies:
+      next: '*'
+      react: '*'
+      react-dom: '*'
+    dependencies:
+      next: 13.3.0_biqbaboplfbrettd7655fr4n2y
+      react: 18.2.0
+      react-dom: 18.2.0_react@18.2.0
+    dev: false
 
   /next/13.3.0_biqbaboplfbrettd7655fr4n2y:
     resolution: {integrity: sha512-OVTw8MpIPa12+DCUkPqRGPS3thlJPcwae2ZL4xti3iBff27goH024xy4q2lhlsdoYiKOi8Kz6uJoLW/GXwgfOA==}
