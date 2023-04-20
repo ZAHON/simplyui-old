@@ -2,11 +2,11 @@ import React from 'react';
 import type { ComponentStory, ComponentMeta } from '@storybook/react';
 import { WrenchkIcon } from '../../icons';
 
-import { ActionIcon } from '@simplyui/react/src';
+import { IconButton } from '@simplyui/react/src';
 
 export default {
-  title: 'Buttons/ActionIcon',
-  component: ActionIcon,
+  title: 'Buttons/IconButton',
+  component: IconButton,
   args: {
     disabled: false,
     loading: false,
@@ -14,6 +14,7 @@ export default {
     size: 'md',
     variant: 'subtle',
     color: 'neutral',
+    focusOutlineColor: 'primary',
     rounded: undefined,
     children: <WrenchkIcon size="1rem" />,
     'aria-label': 'Settings',
@@ -23,6 +24,7 @@ export default {
     size: { control: 'select' },
     variant: { control: 'select' },
     color: { control: 'select' },
+    focusOutlineColor: { control: 'select' },
     rounded: { control: 'select' },
     children: { control: false },
     'aria-label': { control: false },
@@ -31,9 +33,9 @@ export default {
     className: { control: false },
     style: { control: false },
   },
-} as ComponentMeta<typeof ActionIcon>;
+} as ComponentMeta<typeof IconButton>;
 
-const Template: ComponentStory<typeof ActionIcon> = (args) => <ActionIcon {...args} />;
+const Template: ComponentStory<typeof IconButton> = (args) => <IconButton {...args} />;
 
 export const Default = Template.bind({});
 
