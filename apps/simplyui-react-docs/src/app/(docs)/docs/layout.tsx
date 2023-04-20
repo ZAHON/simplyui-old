@@ -1,5 +1,7 @@
 import '../../../styles/globals.css';
 import type { ReactNode } from 'react';
+import { Providers } from '@/components/index';
+import { Shell } from './shell';
 
 export const metadata = {
   title: 'Simplyui React',
@@ -15,7 +17,11 @@ export default function DocsLayout(props: DocsLayoutProps) {
 
   return (
     <html lang="en">
-      <body>{children}</body>
+      <body>
+        <Providers>
+          <Shell>{children}</Shell>
+        </Providers>
+      </body>
     </html>
   );
 }
