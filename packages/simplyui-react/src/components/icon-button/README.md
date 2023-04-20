@@ -1,6 +1,6 @@
-# ActionIcon
+# IconButton
 
-ActionIcon renders an icon within in a button.
+Icon button renders an icon within in a button.
 
 ## Import
 

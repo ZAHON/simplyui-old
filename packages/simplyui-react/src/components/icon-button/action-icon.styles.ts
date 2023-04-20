@@ -1,6 +1,6 @@
 import { cva } from 'class-variance-authority';
 
-export const actionIconStyles = cva(
+export const iconButtonStyles = cva(
   [
     'inline-flex',
     'justify-center',
@@ -16,7 +16,6 @@ export const actionIconStyles = cva(
     'focus-visible:outline',
     'focus-visible:outline-2',
     'focus-visible:outline-offset-2',
-    'focus-visible:outline-primary-9',
 
     'enabled:active:scale-95',
 
@@ -34,7 +33,11 @@ export const actionIconStyles = cva(
       },
       rounded: {
         none: ['rounded-none'],
-        squared: ['rounded-squared'],
+        xs: ['rounded-xs'],
+        sm: ['rounded-sm'],
+        md: ['rounded-md'],
+        lg: ['rounded-lg'],
+        xl: ['rounded-xl'],
         full: ['rounded-full'],
       },
       variant: {
@@ -52,6 +55,15 @@ export const actionIconStyles = cva(
         success: [''],
         warning: [''],
         error: [''],
+      },
+      focusOutlineColor: {
+        neutral: ['focus-visible:outline-neutral-9'],
+        primary: ['focus-visible:outline-primary-9'],
+        secondary: ['focus-visible:outline-secondary-9'],
+        info: ['focus-visible:outline-info-9'],
+        success: ['focus-visible:outline-success-9'],
+        warning: ['focus-visible:outline-warning-9'],
+        error: ['focus-visible:outline-error-9'],
       },
     },
     compoundVariants: [
