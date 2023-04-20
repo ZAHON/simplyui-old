@@ -27,6 +27,12 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   color?: Color;
 
   /**
+   * The outline color when the button is focused.
+   * @default "primary"
+   */
+  focusOutlineColor?: Color;
+
+  /**
    * If `true`, the button will have 100% width of his parent.
    * @default false
    */

@@ -9,6 +9,7 @@ const defaultProps: Partial<ButtonProps> = {
   size: 'md',
   variant: 'filled',
   color: 'primary',
+  focusOutlineColor: 'primary',
   type: 'button',
   loaderPosition: 'left',
 };
@@ -18,6 +19,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
     size,
     variant,
     color,
+    focusOutlineColor,
     fullWidth,
     rounded,
     uppercase,
@@ -53,7 +55,7 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
       data-disabled={dataDisabled}
       data-loading={dataLoading}
       className={twMerge(
-        buttonStyles({ size, variant, color, fullWidth, rounded, uppercase }),
+        buttonStyles({ size, variant, color, focusOutlineColor, fullWidth, rounded, uppercase }),
         className
       )}
       {...others}

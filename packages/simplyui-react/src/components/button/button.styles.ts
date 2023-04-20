@@ -18,7 +18,6 @@ export const buttonStyles = cva(
     'focus-visible:outline',
     'focus-visible:outline-2',
     'focus-visible:outline-offset-2',
-    'focus-visible:outline-primary-9',
 
     'enabled:active:scale-95',
 
@@ -63,6 +62,15 @@ export const buttonStyles = cva(
         success: [''],
         warning: [''],
         error: [''],
+      },
+      focusOutlineColor: {
+        neutral: ['focus-visible:outline-neutral-9'],
+        primary: ['focus-visible:outline-primary-9'],
+        secondary: ['focus-visible:outline-secondary-9'],
+        info: ['focus-visible:outline-info-9'],
+        success: ['focus-visible:outline-success-9'],
+        warning: ['focus-visible:outline-warning-9'],
+        error: ['focus-visible:outline-error-9'],
       },
     },
     compoundVariants: [
