@@ -163,7 +163,7 @@ function Demo() {
 
 ## Variants
 
-Use the `variant` property to change the variant of the Button. You can set the value to `filled`, `light`, `outline` or `subtle`. The The default value is `filled`.
+Use the `variant` property to change the variant of the Button. You can set the value to `filled`, `light`, `outline` or `subtle`. The default value is `filled`.
 
 ```jsx
 import { Button } from '@simplyui/react';

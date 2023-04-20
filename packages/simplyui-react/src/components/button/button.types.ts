@@ -1,4 +1,4 @@
-import type { ButtonHTMLAttributes, ReactNode, CSSProperties } from 'react';
+import type { ButtonHTMLAttributes, ReactNode } from 'react';
 import type { ButtonLoaderProps } from './button-loader/button-loader.types';
 import type { Size, Rounded, Color } from '../../types';
 
@@ -33,9 +33,9 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   fullWidth?: boolean;
 
   /**
-   * The border radius value of the button. This property override border radius value provided by `size` proporty.
+   * The border radius value of the button. This property override border radius determined by `size` property.
    */
-  rounded?: Exclude<Rounded, 'squared'>;
+  rounded?: Rounded;
 
   /**
    * If `true`, the text inside button will be uppercase.
@@ -62,7 +62,7 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   /**
    * Properties spread to loader component.
    */
-  loaderProps?: Omit<ButtonLoaderProps, 'settings'>;
+  loaderProps?: Omit<ButtonLoaderProps, 'buttonSize'>;
 
   /**
    * The loader component position relative to button content
@@ -83,42 +83,12 @@ export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   disabled?: boolean;
 
   /**
-   * If added, the button will show an icon before the button's content.
+   * If added, the button will show left section before the button's content.
    */
-  leftIcon?: ReactNode;
+  leftSection?: ReactNode;
 
   /**
-   * If added, the button will show an icon after the button's content.
+   * If added, the button will show right section after the button's content.
    */
-  rightIcon?: ReactNode;
-
-  /**
-   * Override button default styles.
-   */
-  className?: string;
-
-  /**
-   * Override button default inline style.
-   */
-  style?: CSSProperties;
-
-  /**
-   * Override button left icon wrapper default styles.
-   */
-  leftIconWrapperClassName?: string;
-
-  /**
-   * Override button left icon wrapper default inline style.
-   */
-  leftIconWrapperStyle?: CSSProperties;
-
-  /**
-   * Override button right icon wrapper default styles.
-   */
-  rightIconWrapperClassName?: string;
-
-  /**
-   * Override button right icon wrapper default inline style.
-   */
-  rightIconWrapperStyle?: CSSProperties;
+  rightSection?: ReactNode;
 }

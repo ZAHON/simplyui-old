@@ -27,13 +27,9 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
     loader,
     loaderProps,
     loaderPosition,
-    leftIcon,
-    rightIcon,
+    leftSection,
+    rightSection,
     className,
-    leftIconWrapperClassName,
-    leftIconWrapperStyle,
-    rightIconWrapperClassName,
-    rightIconWrapperStyle,
     children,
     ...others
   } = applayComponentDefaultProps(defaultProps, props);
@@ -47,44 +43,24 @@ export const Button = forwardRef<HTMLButtonElement, ButtonProps>(function Button
     <ButtonLoader {...loaderProps} data-disabled={dataDisabled} buttonSize={size} />
   );
   const buttonLoader = loading ? loaderComponent : null;
-
-  const buttonLeftIcon = leftIcon && (
-    <span
-      data-disabled={dataDisabled}
-      data-loading={dataLoading}
-      style={leftIconWrapperStyle}
-      className={twMerge(leftIconWrapperClassName)}
-    >
-      {leftIcon}
-    </span>
-  );
-
-  const buttonRightIcon = rightIcon && (
-    <span
-      data-disabled={dataDisabled}
-      data-loading={dataLoading}
-      style={rightIconWrapperStyle}
-      className={twMerge(rightIconWrapperClassName)}
-    >
-      {rightIcon}
-    </span>
-  );
+  const buttonLeftSection = leftSection && leftSection;
+  const buttonRightSection = rightSection && rightSection;
 
   return (
     <button
-      {...others}
       ref={ref}
+      disabled={disabled || loading}
       data-disabled={dataDisabled}
       data-loading={dataLoading}
-      disabled={disabled || loading}
       className={twMerge(
         buttonStyles({ size, variant, color, fullWidth, rounded, uppercase }),
         className
       )}
+      {...others}
     >
-      {loaderPosition === 'left' && loading ? buttonLoader : buttonLeftIcon}
+      {loaderPosition === 'left' && loading ? buttonLoader : buttonLeftSection}
       {loading && loadingContent ? loadingContent : children}
-      {loaderPosition === 'right' && loading ? buttonLoader : buttonRightIcon}
+      {loaderPosition === 'right' && loading ? buttonLoader : buttonRightSection}
     </button>
   );
 });

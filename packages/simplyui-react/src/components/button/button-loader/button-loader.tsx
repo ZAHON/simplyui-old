@@ -12,6 +12,6 @@ export function ButtonLoader(props: ButtonLoaderProps) {
   const { buttonSize, className, ...others } = applayComponentDefaultProps(defaultProps, props);
 
   return (
-    <Loader {...others} className={twMerge(buttonLoaderStyles({ size: buttonSize }), className)} />
+    <Loader className={twMerge(buttonLoaderStyles({ size: buttonSize }), className)} {...others} />
   );
 }
